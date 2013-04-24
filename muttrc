@@ -1,0 +1,100 @@
+set mbox_type=Maildir
+set folder=$HOME/.mutt/Gmail
+
+mailboxes +INBOX
+
+macro index D \
+    "<save-message>+[Gmail]/Trash<enter>" \
+    "move message to the trash"
+
+#macro index S \
+#    "<save-message>+[Gmail]/Spam<enter>" \
+#    "mark message as spam"
+
+
+set spoolfile    = +INBOX
+set record=~/.mutt/sent
+# store message headers locally to speed things up
+# if hcache is a folder, Mutt will create sub cache folders for each account which may speeds things even more up
+set header_cache = ~/.mutt/.cache/gmail_hcache
+
+# specify where to save and/or look for postponed messages
+set postponed = +[Gmail]/Drafts
+
+set allow_ansi = yes
+
+set sendmail = /home/wgiokas/bin/msmtp-enqueue
+
+set realname = "William Giokas"
+set hostname = "WST420"
+set editor=vim
+set signature=~/.mutt/signature
+
+set index_format = "%5C %Z %[%F] %-20.20L (%4c) %s"
+
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+
+source ~/.mutt/colors.zenburn
+source ~/.mutt/pgp
+
+# Key Bindings
+bind	index	"^"	imap-fetch-mail
+
+# Sorting
+set sort=threads
+
+# so you don't scroll down a full page, leaving 4 lines at the top/bottom
+set pager_context	= 4
+set pager_stop		= "yes"
+set pager_index_lines	= 10
+set fast_reply		= "yes"
+set smart_wrap
+
+
+# Alias list shite
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+
+### MUTT SIDEBAR SETTINGS
+# set up the sidebar, default not visible
+set sidebar_width=25
+set sidebar_visible=yes
+set sidebar_delim='│'
+set sidebar_sort=no
+
+# which mailboxes to list in the sidebar
+mailboxes =INBOX =ML =rackspace =ML-kernel =FORUM-arch =AUR =arch-commits =Junk =saku_forum
+
+# color of folders with new mail
+color sidebar_new yellow default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index "_" sidebar-prev
+bind index "+" sidebar-next
+bind index "-" sidebar-open
+bind pager "_" sidebar-prev
+bind pager "+" sidebar-next
+bind pager "-" sidebar-open
+
+# I don’t need these. just for documentation purposes. See below.
+# sidebar-scroll-up
+# sidebar-scroll-down
+
+# b toggles sidebar visibility
+macro index B "<enter-command>toggle sidebar_visible<enter>"
+macro pager B "<enter-command>toggle sidebar_visible<enter>"
+
+# Remap bounce-message function to “B”
+#bind index B bounce-message
+
+#
+# Mario Holbe suggests:
+#:macro index B 
+# macro pager b ‘<enter-command>toggle sidebar_visible<enter><redraw-screen>’
+#

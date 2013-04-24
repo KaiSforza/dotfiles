@@ -1,0 +1,41 @@
+#compdef maurpkg
+_maurpkg_operations(){
+    local -a _operations
+    _operations=(
+        'build:Build listed packages, space separated'
+        'clean:Clean the whole repo or just a package'
+        'update:Check for updates for all packages or just one using cower'
+        'download:Download the specified package from the AUR using cower'
+        'info:Get information on a package using pacman and cower'
+        'repo-update:Update the repository'
+        )
+    if (( CURRENT == 1 )); then
+        _describe 'operation' _operations
+    else
+        _message "Package name"
+    fi
+}
+
+_pacman_completions_all_packages() {
+	local -a cmd packages repositories packages_long
+	_pacman_get_command
+
+	if compset -P1 '*/*'; then
+		packages=( $(_call_program packages $cmd[@] -Sql ${words[CURRENT]%/*}) )
+		typeset -U packages
+		_wanted repo_packages expl "repository/package" compadd ${(@)packages}
+	else
+		packages=( $(_call_program packages $cmd[@] -Sql) )
+		typeset -U packages
+		_wanted packages expl "packages" compadd - "${(@)packages}"
+
+		repositories=(${(o)${${${(M)${(f)"$(</etc/pacman.conf)"}:#\[*}/\[/}/\]/}:#options})
+		typeset -U repositories
+		_wanted repo_packages expl "repository/package" compadd -S "/" $repositories
+	fi
+}
+
+
+_arguments \
+    {-h,--help}'[Print help]' \
+        '*::commands:_maurpkg_operations'
