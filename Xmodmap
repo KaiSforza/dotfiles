@@ -1,0 +1,7 @@
+keysym XF86Back = Page_Up
+keysym XF86Forward = Page_Down
+keycode  48 = apostrophe quotedbl dead_acute dead_diaeresis dead_acute dead_diaeresis apostrophe
+keycode  49 = grave asciitilde dead_grave dead_tilde dead_grave dead_tilde grave
+keycode  15 = 6 asciicircum 6 dead_circumflex dead_circumflex onequarter onequarter
+
+
