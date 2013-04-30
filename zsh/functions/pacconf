@@ -6,4 +6,4 @@
     --enable-doc \
     --enable-git-version \
     --enable-debug \
-    --with-scriptlet-shell=/bin/bash
+    --with-scriptlet-shell=/usr/bin/bash
