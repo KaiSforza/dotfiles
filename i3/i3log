@@ -1,0 +1,8 @@
+deciding for version 4 due to this line: # i3 config file (v4)
+10/28/2012 12:58:09 AM - ERROR: Duplicate keybinding in config file:
+  modmask 65 with keysym L, command "move right"
+10/28/2012 12:58:09 AM - ERROR: FYI: You are using i3 version 4.3-135-g7c94e32 (2012-10-25, branch "next")
+window id as int = 23068681
+deciding for version 4 due to this line: # i3 config file (v4)
+window id as int = 23068681
+[libi3] libi3/font.c Using X font -*-proggytinysz-medium-*-*-*-10-*-*-*-*-*-*-*
