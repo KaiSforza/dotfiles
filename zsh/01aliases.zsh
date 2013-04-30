@@ -15,10 +15,10 @@ alias -s PKGBUILD=$EDITOR
 alias ls='ls --color=auto -F'
 alias lsd='ls -ld *(-/DN)'
 alias lsa='ls -ld .*'
-alias ll='ls --color=auto -F -l'
-alias l='ls --color=auto -F -l'
-alias lh='ls --color=auto -F -l -a -h'
-alias la='ls --color=auto -F -l -a'
+alias ll='ls -F -l'
+alias l='ls'
+alias lh='ls -l -a -h'
+alias la='ls -F -l -a'
 alias grep='grep --color=auto'
 alias psg='ps aux | grep '
 alias f='find |grep'
@@ -26,9 +26,6 @@ alias c="clear"
 alias dir='ls -1'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias firestarter='sudo su -c firestarter'
-hist () { grep "$1" ~/.zsh_history ; }
-alias mem="free -m"
 
 # command L equivalent to command |less
 alias -g L='|less' 
@@ -41,18 +38,17 @@ alias pc="pacman "
 alias cw="cower -v "
 alias aurctl="cower"
 alias cwv="cower -v --target=$HOME/aur/vcs"
-alias manjaroman="pacman --config /etc/pacman.d/pacman.conf.manjaro "
 
 #systemd stuff
-alias sc="systemctl --system "
+alias sc="systemctl"
+alias scs="systemctl --system"
 alias scu="systemctl --user "
 alias jc="journalctl "
 
 #alias alsa='alsamixer'
 alias m='mpv'
 #alias scrot='import -window root $(date +%F-%H%M%S)_1600x900_screen.png'
-alias sss='scrot -ucd4 && eog $(ls -tr | tail -n1)'
-alias ompscreen="import -window root png:- | curl -s#F file1=@- http://ompldr.org/upload |sed -n '/url/s/.*url=\([^]]*\)\].*/\1/p'"
+#alias ompscreen="import -window root png:- | curl -s#F file1=@- http://ompldr.org/upload |sed -n '/url/s/.*url=\([^]]*\)\].*/\1/p'"
 alias progress='pv -ptera'
 alias -g reflect="reflector --threads 2 -p http -c 'United States' --sort rate --save /etc/pacman.d/mirrorlist -f5 -a"
 alias sudo="sudo "
