@@ -74,10 +74,10 @@ static const Layout layouts[] = {/*{{{*/
     { MODKEY|ControlMask,           KEY,      tag,            {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },/*}}}*/
 
+/* commands *//*{{{*/
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
-/* commands *//*{{{*/
 /* dmenu *//*{{{*/
 static const char *dmenucmd[]    = { "dmenu_run", "-fn", font, "-nb",
     colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf",
@@ -94,15 +94,15 @@ static const char *zathuracmd[]     = { "systemctl", "--user", "start", "zathura
 /* Systemd --user stuff *//*{{{*/
 static const char *killcmd[]        = { "systemctl", "--user", "exit",                  NULL };
 static const char *restartcmd[]     = { "systemctl", "--user", "restart", "dwm",        NULL };
-static const char *barrestartcmd[]  = { "systemctl", "--user", "restart", "dwmstatus-ks", NULL };/*}}}*//*}}}*/
-
+static const char *barrestartcmd[]  = { "systemctl", "--user", "restart", "dwmstatus-ks", NULL };/*}}}*/
+/*}}}*/
 
 static Key keys[] = {/*{{{*/
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_d,      spawn,          {.v = scucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = killcmd } },
+    { MODKEY|ShiftMask|ControlMask, XK_e,      spawn,          {.v = killcmd } },
     { MODKEY|ShiftMask,             XK_r,      spawn,          {.v = restartcmd } },
     { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
     { MODKEY,                       XK_v,      togglebar,      {0} },
@@ -112,8 +112,8 @@ static Key keys[] = {/*{{{*/
     { MODKEY,                       XK_u,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
     /* Resize main window left and right                                */
-    { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-    { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+    { MODKEY,                       XK_h,      setmfact,       {.f = -0.025} },
+    { MODKEY,                       XK_l,      setmfact,       {.f = +0.025} },
     /* Move window into master position                                 */
     { MODKEY,                       XK_Return, zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
@@ -127,15 +127,23 @@ static Key keys[] = {/*{{{*/
     /* See all tags
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },*/
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-    { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-    { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-    { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_j,      focusmon,       {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_k,      focusmon,       {.i = +1 } },
+    { MODKEY|ControlMask,           XK_k,      tagmon,         {.i = -1 } },
+    { MODKEY|ControlMask,           XK_j,      tagmon,         {.i = +1 } },
     /* Systemd user unit hotkeys                                        */
     { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = luakitcmd } },
     { MODKEY|ShiftMask,             XK_b,      spawn,          {.v = dwbcmd } },
     { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mcomixcmd } },
     { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = zathuracmd } },
+    { MODKEY,                       XK_Down,   moveresize,     {.v = (int []){ 0, 25, 0, 0 }}},
+    { MODKEY,                       XK_Up,     moveresize,     {.v = (int []){ 0, -25, 0, 0 }}},
+    { MODKEY,                       XK_Right,  moveresize,     {.v = (int []){ 25, 0, 0, 0 }}},
+    { MODKEY,                       XK_Left,   moveresize,     {.v = (int []){ -25, 0, 0, 0 }}},
+    { MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 25 }}},
+    { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }}},
+    { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }}},
+    { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
     /* Workspace Tags                                                   */
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
