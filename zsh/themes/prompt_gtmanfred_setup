@@ -1,5 +1,5 @@
 prompt_char(){
-    [[ -n $vcs_info_msg_0_ ]] && echo '└ %% ' && return
+    (( ! UID )) && echo '└ # ' && return
     echo '└ %% '
 }
 
@@ -29,7 +29,7 @@ prompt_gtmanfred_setup() {
     prompt_opts=(cr percent subst)
     add-zsh-hook precmd prompt_gtmanfred_precmd
 
-    zstyle ':vcs_info:*' enable bzr git hg svn
+    zstyle ':vcs_info:*' enable git hg svn
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '%F{g}●%f'
     zstyle ':vcs_info:*' unstagedstr '%F{y}!%f'
