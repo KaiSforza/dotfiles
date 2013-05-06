@@ -30,23 +30,23 @@ autoload -U regex-replace
 
 src()
 {
-        autoload -U zrecompile
-        [ -f ~/.zshrc ] && zrecompile -p ~/.zshrc                    
-        [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump            
-        [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump            
-        [ -f ~/.zshrc.zwc.old ] && rm -f ~/.zshrc.zwc.old            
-        [ -f ~/.zcompdump.zwc.old ] && rm -f ~/.zcompdump.zwc.old    
-        source ~/.zshrc
+  autoload -U zrecompile
+  [ -f ~/.zshrc ] && zrecompile -p ~/.zshrc                    
+  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump            
+  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump            
+  [ -f ~/.zshrc.zwc.old ] && rm -f ~/.zshrc.zwc.old            
+  [ -f ~/.zcompdump.zwc.old ] && rm -f ~/.zcompdump.zwc.old    
+  source ~/.zshrc
 }
 
 t(){
 	tmux -L main "${@:-attach}";}
 # vi: ft=zsh sw=2 ts=2
 _tmux_pane_complete() {
-    [[ -z "$TMUX_PANE" ]] && return 1
-    local -a -U words
-    words=(${=$(tmux capture-pane -S -1853 \; show-buffer \; delete-buffer)})
-    compadd -a words
+  [[ -z "$TMUX_PANE" ]] && return 1
+  local -a -U words
+  words=(${=$(tmux capture-pane -S -1853 \; show-buffer \; delete-buffer)})
+  compadd -a words
 }
 
 compdef -k _tmux_pane_complete menu-select '^T'

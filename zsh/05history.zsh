@@ -32,4 +32,3 @@ setopt pushd_ignore_dups
 setopt no_pushd_minus
 setopt pushd_silent
 setopt pushd_to_home
-

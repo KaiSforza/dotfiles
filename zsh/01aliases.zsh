@@ -45,17 +45,9 @@ alias scs="systemctl --system"
 alias scu="systemctl --user "
 alias jc="journalctl "
 
-#alias alsa='alsamixer'
 alias m='mpv'
-#alias scrot='import -window root $(date +%F-%H%M%S)_1600x900_screen.png'
-#alias ompscreen="import -window root png:- | curl -s#F file1=@- http://ompldr.org/upload |sed -n '/url/s/.*url=\([^]]*\)\].*/\1/p'"
-alias progress='pv -ptera'
 alias -g reflect="reflector --threads 2 -p http -c 'United States' --sort rate --save /etc/pacman.d/mirrorlist -f5 -a"
 alias sudo="sudo "
 alias s='sudo '
 alias ytv='youtube-viewer -4 --mplayer=mpv'
-
 alias present_term="urxvtc -title 'presenting' -fn 'xft:Bitstream Vera Sans Mono:pixelsize=14' -fb 'xft:Bitstream Vera Sans Mono:pixelsize=14:bold'"
-
-# Kexec aliases
-alias kload="kexec -l /boot/vmlinuz-linux-mainline --initrd=/boot/initramfs-linux-mainline.img --reuse-cmdline"
