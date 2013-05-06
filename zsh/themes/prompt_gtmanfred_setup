@@ -1,6 +1,6 @@
 prompt_char(){
-    [[ -n $vcs_info_msg_0_ ]] && echo '└─╼ ' && return
-    echo '└─╼ '
+    [[ -n $vcs_info_msg_0_ ]] && echo '└ %% ' && return
+    echo '└ %% '
 }
 
 +vi-git-status () {
@@ -33,7 +33,7 @@ prompt_gtmanfred_setup() {
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '%F{g}●%f'
     zstyle ':vcs_info:*' unstagedstr '%F{y}!%f'
-    zstyle ':vcs_info:*' formats 'on %F{m}%b%c%u%m%F{n}'
+    zstyle ':vcs_info:*' formats '%s %F{m}%b%c%u%m%F{n}'
     zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
     zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{c}%r%f'
     zstyle ':vcs_info:git*+set-message:*' hooks git-status
@@ -56,3 +56,5 @@ prompt_gtmanfred_preview(){
     prompt_preview_theme gtmanfred "$@"
 }
 prompt_gtmanfred_setup "$@"
+
+# vim: set ft=zsh:
