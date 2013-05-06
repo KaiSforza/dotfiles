@@ -1,0 +1,60 @@
+prompt_char(){
+    (( ! UID )) && echo '└ # ' && return
+    echo '└ %% '
+}
+
++vi-git-status () {
+  # Untracked files.
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    hook_com[misc]='%F{r}?%f'
+  fi
+}
+
+
+prompt_kaictl_precmd(){
+    vcs_info
+}
+
+prompt_kaictl_help(){
+  cat <<EOH
+kaictl's prompt
+EOH
+}
+
+prompt_kaictl_setup() {
+    setopt prompt_subst
+    autoload -U colors && colors
+    autoload -Uz add-zsh-hook vcs_info
+
+    prompt_opts=(cr percent subst)
+    add-zsh-hook precmd prompt_kaictl_precmd
+
+    zstyle ':vcs_info:*' enable git hg svn
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:*' stagedstr '%F{g}●%f'
+    zstyle ':vcs_info:*' unstagedstr '%F{y}!%f'
+    zstyle ':vcs_info:*' formats '%s %F{m}%b%c%u%m%F{n}'
+    zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
+    zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{c}%r%f'
+    zstyle ':vcs_info:git*+set-message:*' hooks git-status
+
+    if (( ! UID )); then
+        name='%B%F{red}%n%f%b'
+    else
+        name='%B%F{green}%n%f%b'
+    fi
+
+
+    PROMPT='┌─ %B%F{blue}%n%f%b @ %F{green}%m%f ── %B%F{blue}%~%f%b ${vcs_info_msg_0_}%{$reset_color%}$prompt_newline$(prompt_char)%f'
+    RPROMPT='%(?,%F{green}(⌐■_■),%F{yellow}%? %F{red}（╯°□°）╯︵ ┻━┻)%f'
+
+    #RPROMPT="%(?.:D.:()"
+    PS4='+%N:%i:%x:%I>'
+}
+
+prompt_kaictl_preview(){
+    prompt_preview_theme kaictl "$@"
+}
+prompt_kaictl_setup "$@"
+
+# vim: set ft=zsh:
