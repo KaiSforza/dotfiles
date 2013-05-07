@@ -1,6 +1,6 @@
 prompt_char(){
-    (( ! UID )) && echo '└ # ' && return
-    echo '└ %% '
+    (( ! UID )) && echo '└─# ' && return
+    echo '└─%% '
 }
 
 +vi-git-status () {
