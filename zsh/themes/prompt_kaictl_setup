@@ -45,11 +45,7 @@ prompt_kaictl_setup() {
     fi
 
 
-    if [[ -n SSH_CONNECTION ]]; then
-      PROMPT='┌─ %B%F{yellow}%n%f%b @ %F{green}%m%f ── %B%F{blue}%~%f%b ${vcs_info_msg_0_}%{$reset_color%}$prompt_newline$(prompt_char)%f'
-    else
-      PROMPT='┌─ %B%F{blue}%n%f%b @ %F{green}%m%f ── %B%F{blue}%~%f%b ${vcs_info_msg_0_}%{$reset_color%}$prompt_newline$(prompt_char)%f'
-    fi
+    PROMPT='┌─ %B%F{blue}%n%f%b @ %F{green}%m%f ── %B%F{blue}%~%f%b ${vcs_info_msg_0_}%{$reset_color%}$prompt_newline$(prompt_char)%f'
     RPROMPT='%(?,%F{green}(⌐■_■),%F{yellow}%? %F{red}（╯°□°）╯︵ ┻━┻)%f'
 
     #RPROMPT="%(?.:D.:()"
