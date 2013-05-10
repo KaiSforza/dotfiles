@@ -1,0 +1,26 @@
+[user]
+	email = 1007380@gmail.com
+	name = William Giokas
+	signingkey = 73CD09CF
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[sendemail]
+  #smtpserver = /usr/bin/msmtp
+  smtpserver = /home/wgiokas/bin/msmtp-enqueue
+[alias]
+	st = status
+	cm = commit
+	lo = log --all --graph --decorate=full --stat
+	co = checkout
+	pu = pull
+	fe = fetch
+	rb = rebase
+	dc = diff --cached
+	di = diff
+[config]
+	di = diff
+	dc = diff --cached
+[push]
+	default = simple
