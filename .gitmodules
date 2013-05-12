@@ -1,0 +1,4 @@
+[submodule "luakit/plugins"]
+	path = luakit/plugins
+	url = ../luakitplugins
+	branch = wgiokas
