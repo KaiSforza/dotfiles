@@ -40,6 +40,8 @@ static const Rule rules[] = {
     { "URxvt",    NULL,       "download_dwb", 1 << 1,       True,        0  },
     { "luakit",   NULL,       NULL,           1 << 1,       False,       0  },
     { "Firefox",  NULL,       NULL,           1 << 1,       False,       0  },
+    /* Skype */
+    { "Skype",    NULL,       NULL,           1 << 4,       True,        0  },
     /* miscelaneous */
     { "Gimp",     NULL,       NULL,           1 << 2,       False,       0  },
     { "Mcomix",   NULL,       NULL,           1 << 2,       False,       0  },
@@ -136,14 +138,14 @@ static Key keys[] = {/*{{{*/
     { MODKEY|ShiftMask,             XK_b,      spawn,          {.v = dwbcmd } },
     { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mcomixcmd } },
     { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = zathuracmd } },
-    { MODKEY,                       XK_Down,   moveresize,     {.v = (int []){ 0, 25, 0, 0 }}},
-    { MODKEY,                       XK_Up,     moveresize,     {.v = (int []){ 0, -25, 0, 0 }}},
-    { MODKEY,                       XK_Right,  moveresize,     {.v = (int []){ 25, 0, 0, 0 }}},
-    { MODKEY,                       XK_Left,   moveresize,     {.v = (int []){ -25, 0, 0, 0 }}},
-    { MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 25 }}},
-    { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }}},
-    { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }}},
-    { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
+    { MODKEY,                       XK_Down,   moveresize,     {.v = (int []){ 0, 25, 0, 0 }} },
+    { MODKEY,                       XK_Up,     moveresize,     {.v = (int []){ 0, -25, 0, 0 }} },
+    { MODKEY,                       XK_Right,  moveresize,     {.v = (int []){ 25, 0, 0, 0 }} },
+    { MODKEY,                       XK_Left,   moveresize,     {.v = (int []){ -25, 0, 0, 0 }} },
+    { MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 25 }} },
+    { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }} },
+    { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }} },
+    { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }} },
     /* Workspace Tags                                                   */
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
