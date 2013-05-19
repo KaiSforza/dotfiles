@@ -10,25 +10,42 @@ EOF
 
 }
 
+exists-action() {
+  local dir file writeover
+  dir="$1"
+  file="$2"
+  printf -- "==> Warning: File .$i already exists in $dir\n"
+  printf -- "  -> Overwirte this file? [y/N] "
+  read writeover
+  case $writeover in
+    y|Y)
+      mv "$dir/.${file}" "$dotfiles/backups/${file}.backup"
+      ln -fsv "$dotfiles/${file}" "$dir/.${file}"
+      ;;
+    *)
+      printf -- "Skipping file ${file}. Manually link this or run it again.\n"
+  esac
+}
+
+linkdirs() {
+  local dir file
+  dir="$1"
+  file="$2"
+  if [[ ! -d "$dir/.${file}" || ! -h "$dir/.${file}" ]]; then
+    ln -sv "$dotfiles/${file}" "$dir/.${file}"
+  else
+    exists-action "$dir" "$file"
+  fi
+}
+
 linkfiles() {
   local dir file
   dir="$1"
   file="$2"
-  unset writeover
   if [[ ! -f "$dir/.${file}" || ! -h "$dir/.${file}" ]]; then
     ln -sv "$dotfiles/${file}" "$dir/.${file}"
   else
-    printf -- "==> Warning: File .$i already exists in $dir\n"
-    printf -- "  -> Overwirte this file? [y/N] "
-    read writeover
-    case $writeover in
-      y|Y)
-        mv "$dir/.${file}" "$dotfiles/backups/${file}.backup"
-        ln -fsv "$dotfiles/${file}" "$dir/.${file}"
-        ;;
-      *)
-        printf -- "Skipping file ${file}. Manually link this or run it again.\n"
-    esac
+    exists-action "$dir" "$file"
   fi
 }
 
@@ -63,10 +80,12 @@ elif [[ ! -w $HOME || ! -w $XDG_CONFIG_HOME ]]; then
   exit 1
 fi
 
-for i in ${homefiles[@]} ${homedirs[@]}; do
+for i in ${homefiles[@]}; do
   linkfiles "$HOME" "${i}"
 done
-
+for i in ${homedirs[@]}; do
+  linkdirs "$HOME" "${i}"
+done
 for i in ${xdgdirs[@]}; do
-  linkfiles "$XDG_CONFIG_HOME" "${i}"
+  linkdirs "$XDG_CONFIG_HOME" "${i}"
 done
