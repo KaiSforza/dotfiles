@@ -38,6 +38,10 @@ prompt_kaictl2_setup() {
     __name='%B%F{blue}%n%f%b'
   fi
 
+  if [[ -n $SSH_CONNECTION ]]; then
+    __name='%B%F{yellow}%n%f%b'
+  fi
+
   PROMPT="%(?,,%F{red}%?%f|)$__name@%F{green}%m%f:%~ %# "
   RPROMPT='${vcs_info_msg_0_}'
 
