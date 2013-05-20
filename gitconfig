@@ -19,8 +19,5 @@
 	rb = rebase
 	dc = diff --cached
 	di = diff
-[config]
-	di = diff
-	dc = diff --cached
 [push]
 	default = simple
