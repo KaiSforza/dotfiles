@@ -400,6 +400,7 @@ unalias ls
 alias ls='ls --color=auto -F'
 alias l='ls'
 alias la='l -a'
+alias lh='la -h'
 alias ll='l -l'
 alias lo='l -alo'
 # }}}
