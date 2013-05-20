@@ -33,12 +33,12 @@ prompt_kaictl2_setup() {
   zstyle ':vcs_info:git*+set-message:*' hooks git-status
 
   if (( ! UID )); then
-    name='%B%F{red}%n%f%b'
+    __name='%B%F{red}%n%f%b'
   else
-    name='%B%F{green}%n%f%b'
+    __name='%B%F{blue}%n%f%b'
   fi
 
-  PROMPT='%(?,,%F{red}%?%f|)%B%F{blue}%n%f%b@%F{green}%m%f:%~ %# '
+  PROMPT="%(?,,%F{red}%?%f|)$__name@%F{green}%m%f:%~ %# "
   RPROMPT='${vcs_info_msg_0_}'
 
   #RPROMPT="%(?.:D.:()"
