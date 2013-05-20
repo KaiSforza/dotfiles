@@ -35,7 +35,7 @@ YELLOW="$(tput setaf 3)"
 #}}}
 
 # Prompt: {{{
-PS1='#'; (( USER_ID )) && PS1='%'; [[ ${HOSTNAME:=$(ulimit -c 0; hostname -s \
+PS1='#'; (( USER_ID )) && PS1='$'; [[ ${HOSTNAME:=$(ulimit -c 0; hostname -s \
     2>/dev/null)} = *([	 ]|localhost) ]] && HOSTNAME=$(ulimit -c 0; hostname \
     2>/dev/null); : ${EDITOR:=/bin/ed} ${HOSTNAME:=nil} ${TERM:=vt100}
 function precmd {
@@ -45,7 +45,7 @@ function precmd {
 	# precmd is required to retain the errorlevel when ${ …;} is used
 	return $e
 }
-PS1=$'\001\r''${ precmd;}${BOLD}${BLUE}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo \?
+PS1=$'\001\r''${ precmd;}${BLUE}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo \?
 	)}${ALL_OFF}@${GREEN}${HOSTNAME%%.*}${ALL_OFF}:${ local e=$? d=${PWD:-?} p=~; [[ $p = ?(*/) ]] || \
 	d=${d/#$p/~}; local m=${%d} n p=...; (( m > 0 )) || m=${#d}
 	(( m > (n = (COLUMNS/3 < 7 ? 7 : COLUMNS/3)) )) && d=${d:(-n)} || \
