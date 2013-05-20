@@ -38,7 +38,7 @@ prompt_kaictl2_setup() {
     name='%B%F{green}%n%f%b'
   fi
 
-  PROMPT='%B%F{blue}%n%f%b@%F{green}%m%f:%B%~%b %# '
+  PROMPT='%B%F{blue}%n%f%b@%F{green}%m%f:%~ %# '
   RPROMPT='${vcs_info_msg_0_}%(?,,:%F{yellow}%?%f)'
 
   #RPROMPT="%(?.:D.:()"
