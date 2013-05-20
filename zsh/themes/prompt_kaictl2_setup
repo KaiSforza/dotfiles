@@ -25,7 +25,7 @@ prompt_kaictl2_setup() {
 
   zstyle ':vcs_info:*' enable git hg svn
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr '%F{g}●%f'
+  zstyle ':vcs_info:*' stagedstr '%B%F{g}@%f%b'
   zstyle ':vcs_info:*' unstagedstr '%F{y}!%f'
   zstyle ':vcs_info:*' formats '%F{m}%b%c%u%m%F{n}'
   zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
