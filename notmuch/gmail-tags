@@ -1,0 +1,24 @@
+# Kernel stuffs.
++git-bugs -ML -ML-kernel -- to:"git@vger.kernel.org"
++ML-kernel -ML -- to:"linux@vger.kernel.org"
+
+# ArchLinux tags
++archlinux +ML -- to:"@archlinux.org"
++aur -ML      -- from:"aur-notify@archlinux.org" 
++arch-forum -ML -- from:"nobody@archlinux.org"
++arch-general -- to:"arch-general@archlinux.org"
++arch-dev-pub -- to:"arch-dev-public@archlinux.org"
++pacman-dev   -- to:"pacman-dev@archlinux.org"
++arch-releng  -- to:"arch-releng@archlinux.org"
++arch-bugs -ML -- from:"bugs@archlinux.org"
+
+# Main ML tags
++ML           -- to:"@lists.freedesktop.org"
++xorg         -- to:"xorg*@*freedesktop.org"
++systemd      -- to:"systemd-devel@lists.freedesktop.org"
++ML +suckless -- to:"dev@suckless.org"
+
+# To and from rackspace
++rackspace    -- to:"@rackspace.com"
++rackspace    -- from:"@rackspace.com"
++rackspace-list -- from:"rackspace-feedback@noreply.jobs2web.com"
