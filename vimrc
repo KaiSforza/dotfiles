@@ -21,6 +21,7 @@ set title
 set wildmenu
 set wildmode=full
 set nowrap
+set list listchars=tab:→\ ,extends:$,precedes:^
 
 " folding
 set foldignore=
@@ -120,7 +121,7 @@ au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 au FileType java set makeprg=/usr/bin/javac\ -d\ ../bin\ %
 au BufNewFile,BufRead *.t2t set ft=txt2tags
-au BufNewFile,BufRead *.md set ft=markdown tw=76
+au BufNewFile,BufRead *.md  set ft=markdown tw=76
 au BufNewFile,BufRead *.rst set tw=76
 au BufNewFile,BufRead *.bug set tw=76 ft=rst
 au BufNewFile,BufRead *.asm set tabstop=4 expandtab shiftwidth=4 softtabstop=4
