@@ -170,7 +170,7 @@ remoterepository = Gmail-remote
 # frequently to do that (in minutes) here.  You can also specify
 # fractional minutes (ie, 3.25).
 
-autorefresh = 3
+autorefresh = 2
 
 # OfflineImap can replace a number of full updates by quick
 # synchronizations.  It only synchronizes a folder if 1) a Maildir
@@ -184,7 +184,7 @@ autorefresh = 3
 # another full synchronization (requires autorefresh).  Updates are
 # always performed after <autorefresh> minutes, be they quick or full.
 
-quick = 30
+quick = 60
 
 # You can specify a pre and post sync hook to execute a external command.
 # In this case a call to imapfilter to filter mail before the sync process
@@ -194,6 +194,7 @@ quick = 30
 
 # presynchook = imapfilter
 # postsynchook = notifysync.sh
+postsynchook = notmuch new
 
 # You can also specify parameters to the commands
 # presynchook = imapfilter -c someotherconfig.lua
@@ -263,7 +264,7 @@ type = Maildir
 # to maildirs created under this path.  OfflineIMAP will create the
 # maildirs for you as needed.
 
-localfolders = ~/.mutt/Gmail
+localfolders = ~/.mutt/gmail
 
 # You can specify the "folder separator character" used for your Maildir
 # folders.  It is inserted in-between the components of the tree. If you
@@ -465,7 +466,7 @@ holdconnectionopen = yes
 #                               re.sub ('starred', 'flagged',
 #                               re.sub (' ', '_', foldername.lower()))))
 
-folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+folderfilter = lambda foldername: foldername not in ['[Gmail]/Trash', '[Gmail]/All Mail', 'ML-kernel', 'git-bugs']
 
 # Using Courier remotely and want to duplicate its mailbox naming
 # locally?  Try this:
