@@ -1,11 +1,11 @@
 set mbox_type=Maildir
-set folder=$HOME/.mutt/Gmail
+set folder=$HOME/.mutt/gmail
 
 mailboxes +INBOX
 
-macro index D \
-    "<save-message>+[Gmail]/Trash<enter>" \
-    "move message to the trash"
+#macro index D \
+#    "<save-message>+[Gmail]/Trash<enter>" \
+#    "move message to the trash"
 
 #macro index S \
 #    "<save-message>+[Gmail]/Spam<enter>" \
@@ -19,7 +19,7 @@ set record=~/.mutt/sent
 set header_cache = ~/.mutt/.cache/gmail_hcache
 
 # specify where to save and/or look for postponed messages
-set postponed = +[Gmail]/Drafts
+set postponed = +Drafts
 
 set allow_ansi = yes
 
@@ -30,14 +30,14 @@ set hostname = "WST420"
 set editor=vim
 set signature=~/.mutt/signature
 
-set index_format = "%5C %Z %[%F] %-20.20L (%4c) %s"
+set index_format = "%5C %Z %2M %[%F] %-20.20F (%4c) %s"
 
 set mailcap_path=~/.mutt/mailcap
 auto_view text/html
 alternative_order text/plain text/html
 
 source ~/.mutt/colors.zenburn
-source ~/.mutt/pgp
+source ~/.mutt/gpg.rc
 
 # Key Bindings
 bind	index	"^"	imap-fetch-mail
@@ -68,7 +68,7 @@ set sidebar_delim='│'
 set sidebar_sort=no
 
 # which mailboxes to list in the sidebar
-mailboxes =INBOX =ML =rackspace =ML-kernel =FORUM-arch =AUR =arch-commits =Junk =saku_forum
+mailboxes =INBOX =ML =rackspace =ML-kernel =git-bugs =FORUM-arch =AUR =Junk =Phone =depth =pacman-dev
 
 # color of folders with new mail
 color sidebar_new yellow default
@@ -98,3 +98,28 @@ macro pager B "<enter-command>toggle sidebar_visible<enter>"
 #:macro index B 
 # macro pager b ‘<enter-command>toggle sidebar_visible<enter><redraw-screen>’
 #
+
+# 'L' performs a notmuch query, showing only the results
+macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+# 'A' shows all messages again
+macro index A "<limit>all\n" "show all messages (undo limit)"
+
+# arch linux lists
+subscribe -group archlinux aur-general@archlinux.org
+subscribe -group archlinux aur-dev@archlinux.org
+subscribe -group archlinux arch-general@archlinux.org
+subscribe -group archlinux pacman-dev@archlinux.org
+subscribe -group archlinux arch-dev-public@archlinux.org
+subscribe -group archlinux arch-mirrors@archlinux.org
+subscribe -group archlinux arch-projects@archlinux.org
+subscribe -group archlinux arch-releng@archlinux.org
+# xorg lists
+subscribe -group xorg xorg@*freedesktop.org
+subscribe -group xorg xorg-announce@lists.freedesktop.org
+subscribe -group xorg xorg@lists.x.org
+# systemd lists
+subscribe -group systemd systemd-devel@lists.freedesktop.org
+# suckless ml
+subscribe -group suckless dev@suckless.org
+# Yum mailing list
+subscribe -group yum yum@lists.baseurl.org

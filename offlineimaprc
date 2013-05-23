@@ -68,7 +68,7 @@ maxsyncaccounts = 2
 #
 # You can override this with a command-line option -u.
 
-ui = Basic
+ui = Quiet
 
 # If you try to synchronize messages to a folder which the IMAP server
 # considers read-only, OfflineIMAP will generate a warning.  If you want
@@ -170,7 +170,7 @@ remoterepository = Gmail-remote
 # frequently to do that (in minutes) here.  You can also specify
 # fractional minutes (ie, 3.25).
 
-autorefresh = 2
+autorefresh = 5
 
 # OfflineImap can replace a number of full updates by quick
 # synchronizations.  It only synchronizes a folder if 1) a Maildir
@@ -184,7 +184,7 @@ autorefresh = 2
 # another full synchronization (requires autorefresh).  Updates are
 # always performed after <autorefresh> minutes, be they quick or full.
 
-quick = 60
+quick = 20
 
 # You can specify a pre and post sync hook to execute a external command.
 # In this case a call to imapfilter to filter mail before the sync process
@@ -466,7 +466,9 @@ holdconnectionopen = yes
 #                               re.sub ('starred', 'flagged',
 #                               re.sub (' ', '_', foldername.lower()))))
 
-folderfilter = lambda foldername: foldername not in ['[Gmail]/Trash', '[Gmail]/All Mail', 'ML-kernel', 'git-bugs']
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
+#folderfilter = lambda foldername: foldername not in ['[Gmail]/Trash', '[Gmail]/All Mail', 'ML-kernel', 'git-bugs', 'numeral']
+#folderfilter = lambda foldername: foldername in ['Inbox', 'rackspace', 'FORUM-arch', 'AUR']
 
 # Using Courier remotely and want to duplicate its mailbox naming
 # locally?  Try this:
