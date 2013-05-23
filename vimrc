@@ -6,7 +6,7 @@ set encoding=utf-8
 " File Detection
 filetype plugin indent on
 syntax on
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,/usr/share/vim/,$VIM/vimfiles/after,~/.vim/after
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 
 set backspace=2 "backspace over everything
 "set cursorline  "Show line cursor is on
@@ -21,7 +21,6 @@ set title
 set wildmenu
 set wildmode=full
 set nowrap
-set list listchars=tab:→\ ,extends:$,precedes:^
 
 " folding
 set foldignore=
@@ -92,7 +91,7 @@ augroup vimrcEx
 au!
 
 " For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
+autocmd FileType text setlocal textwidth=78 colorcolumn=78
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -115,15 +114,14 @@ endif
 
 "Specific file types:
 "Python:
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-"Java:
-au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-au FileType java set makeprg=/usr/bin/javac\ -d\ ../bin\ %
+au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 textwidth=79  colorcolumn=79
+""Java:
+"au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+"au FileType java set makeprg=/usr/bin/javac\ -d\ ../bin\ %
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.md  set ft=markdown tw=76
 au BufNewFile,BufRead *.rst set tw=76
-au BufNewFile,BufRead *.bug set tw=76 ft=rst
 au BufNewFile,BufRead *.asm set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType haskell setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
@@ -131,5 +129,5 @@ set background=dark
 "colo slate
 colo darkZ2
 "Show line at 80 columns
-set colorcolumn=80
+set colorcolumn=76
 hi ColorColumn ctermbg=black guibg=black
