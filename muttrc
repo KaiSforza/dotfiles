@@ -91,6 +91,9 @@ bind pager "-" sidebar-open
 macro index B "<enter-command>toggle sidebar_visible<enter>"
 macro pager B "<enter-command>toggle sidebar_visible<enter>"
 
+# msmtp-listqueue and msmtp-runqueue stuffs
+macro index S "<enter-command>unset wait_key<enter><shell-escape>msmtp-listqueue;read -p 'Send this mail? ' _a; if [[ $_a -eq 'y' ]]; then msmtp-runqueue; fi<enter>" "List and send queued emails"
+
 # Remap bounce-message function to “B”
 #bind index B bounce-message
 
