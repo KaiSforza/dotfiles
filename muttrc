@@ -106,14 +106,15 @@ macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuc
 macro index A "<limit>all\n" "show all messages (undo limit)"
 
 # arch linux lists
-subscribe -group archlinux aur-general@archlinux.org
-subscribe -group archlinux aur-dev@archlinux.org
-subscribe -group archlinux arch-general@archlinux.org
-subscribe -group archlinux pacman-dev@archlinux.org
-subscribe -group archlinux arch-dev-public@archlinux.org
-subscribe -group archlinux arch-mirrors@archlinux.org
-subscribe -group archlinux arch-projects@archlinux.org
-subscribe -group archlinux arch-releng@archlinux.org
+subscribe -group archlinux *@archlinux.org
+subscribe -group archlinux-aur aur-general@archlinux.org
+subscribe -group archlinux-aur-dev aur-dev@archlinux.org
+subscribe -group archlinux-gen arch-general@archlinux.org
+subscribe -group archlinux-pacman pacman-dev@archlinux.org
+subscribe -group archlinux-dev arch-dev-public@archlinux.org
+subscribe -group archlinux-mirrors arch-mirrors@archlinux.org
+subscribe -group archlinux-proj arch-projects@archlinux.org
+subscribe -group archlinux-releng arch-releng@archlinux.org
 # xorg lists
 subscribe -group xorg xorg@*freedesktop.org
 subscribe -group xorg xorg-announce@lists.freedesktop.org
