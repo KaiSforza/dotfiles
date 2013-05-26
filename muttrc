@@ -38,6 +38,7 @@ alternative_order text/plain text/html
 
 source ~/.mutt/colors.zenburn
 source ~/.mutt/gpg.rc
+set pgp_autosign=yes
 
 # Key Bindings
 bind	index	"^"	imap-fetch-mail
