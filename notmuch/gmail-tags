@@ -14,7 +14,9 @@
 
 # Main ML tags
 +ML           -- to:"@lists.freedesktop.org"
-+xorg         -- to:"xorg*@*freedesktop.org"
+# xorg tags
++xorg +ML     -- to:"xorg*@*freedesktop.org"
++xorg         -- to:"xorg*@*x.org"
 +systemd      -- to:"systemd-devel@lists.freedesktop.org"
 +ML +suckless -- to:"dev@suckless.org"
 
