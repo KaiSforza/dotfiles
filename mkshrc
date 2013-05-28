@@ -51,7 +51,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
 	_USER_NAME="${BOLD}${BLUE}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo )}${ALL_OFF}"
 fi
-PS1='$(precmd)${_USER_NAME}#${GREEN}${HOSTNAME%%.*}${ALL_OFF}:${YELLOW}${PWD}${ALL_OFF} '"$PS1 "
+PS1='$(precmd)${_USER_NAME}@${GREEN}${HOSTNAME%%.*}${ALL_OFF}:${YELLOW}${PWD}${ALL_OFF} '"$PS1 "
 : ${MKSH:=$(whence -p mksh)}; export EDITOR HOSTNAME MKSH TERM USER
 # }}}
 
