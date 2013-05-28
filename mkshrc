@@ -47,14 +47,11 @@ function precmd {
 }
 unset _USER_NAME
 if [[ -n $SSH_CONNECTION ]]; then
-	_USER_NAME="${YELLOW}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo )}${ALL_OFF}"
+	_USER_NAME="${BOLD}${YELLOW}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo )}${ALL_OFF}"
 else
-	_USER_NAME="${BLUE}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo )}${ALL_OFF}"
+	_USER_NAME="${BOLD}${BLUE}${USER:=$(ulimit -c 0; id -un 2>/dev/null || echo )}${ALL_OFF}"
 fi
-PS1=$'\001\r''${ precmd;}${_USER_NAME}@${GREEN}${HOSTNAME%%.*}${ALL_OFF}:${YELLOW}${ local e=$? d=${PWD:-?} p=~; \
-[[ $p = ?(*/) ]] || d=${d/#$p/~}; local m=${%d} n p=...; (( m > 0 )) || m=${#d}
-(( m > (n = (COLUMNS/3 < 7 ? 7 : COLUMNS/3)) )) && d=${d:(-n)} || \
-p=; print -nr -- "$p$d"; return $e;}${ALL_OFF} '"$PS1 "; PS4='[${EPOCHREALTIME}] '
+PS1='$(precmd)${_USER_NAME}#${GREEN}${HOSTNAME%%.*}${ALL_OFF}:${YELLOW}${PWD}${ALL_OFF} '"$PS1 "
 : ${MKSH:=$(whence -p mksh)}; export EDITOR HOSTNAME MKSH TERM USER
 # }}}
 
