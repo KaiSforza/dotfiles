@@ -69,6 +69,10 @@ set backup		" keep a backup file
 set history=50		" keep 50 lines of command line history
 set number		" display line numbers
 
+"Color scheme
+set background=dark
+colo darkZ2
+
 " Tlist Commands and variables
 nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F9> :TlistUpdate<CR>
@@ -90,9 +94,6 @@ inoremap <C-U> <C-G>u<C-U>
 augroup vimrcEx
 au!
 
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78 colorcolumn=78
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
@@ -112,10 +113,19 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-"Specific file types:
-"Python:
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 textwidth=79  colorcolumn=79
-""Java:
+" Version specific stuffs{{{
+if version >= 7.3
+  "This stuff doesn't like working with old versions, I think 7.3 was when
+  "this was included.
+  autocmd FileType text setlocal textwidth=78 colorcolumn=78
+  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 textwidth=79  colorcolumn=79
+  set colorcolumn=76
+  hi ColorColumn ctermbg=black guibg=black
+else
+  autocmd FileType text setlocal textwidth=78
+  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 textwidth=79
+endif "}}}
+
 "au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 "au FileType java set makeprg=/usr/bin/javac\ -d\ ../bin\ %
@@ -125,9 +135,3 @@ au BufNewFile,BufRead *.rst set tw=76
 au BufNewFile,BufRead *.asm set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType haskell setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
-set background=dark
-"colo slate
-colo darkZ2
-"Show line at 80 columns
-set colorcolumn=76
-hi ColorColumn ctermbg=black guibg=black
