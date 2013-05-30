@@ -1,3 +1,5 @@
 backups/
+zsh/zhistory
+vim/.netrwhist
 *~
 *.sw[op]
