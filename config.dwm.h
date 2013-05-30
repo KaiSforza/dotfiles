@@ -53,6 +53,7 @@ static const Rule rules[] = {
     { "Steam",    NULL,       NULL,           1 << 4,       True,        -1 },
     { "Gvbam",    NULL,       NULL,           1 << 4,       True,        -1 },
     { "Display",  NULL,       NULL,                0,       True,        -1 },
+    { "Vncviewer",NULL,       NULL,                0,       True,        -1 },
 };/*}}}*/
 
 /* layout(s) *//*{{{*/
