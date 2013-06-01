@@ -114,7 +114,7 @@ if !exists(":DiffOrig")
 endif
 
 " Version specific stuffs{{{
-if version >= 7.3
+if version >= 703
   "This stuff doesn't like working with old versions, I think 7.3 was when
   "this was included.
   autocmd FileType text setlocal textwidth=78 colorcolumn=78
