@@ -19,5 +19,3 @@
 	rb = rebase
 	dc = diff --cached
 	di = diff
-[push]
-	default = simple
