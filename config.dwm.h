@@ -147,6 +147,14 @@ static Key keys[] = {/*{{{*/
     { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }} },
     { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }} },
     { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }} },
+    { MODKEY|ControlMask,           XK_Down,   moveresize,     {.v = (int []){ 0, 1, 0, 0 }} },
+    { MODKEY|ControlMask,           XK_Up,     moveresize,     {.v = (int []){ 0, -1, 0, 0 }} },
+    { MODKEY|ControlMask,           XK_Right,  moveresize,     {.v = (int []){ 1, 0, 0, 0 }} },
+    { MODKEY|ControlMask,           XK_Left,   moveresize,     {.v = (int []){ -1, 0, 0, 0 }} },
+    { MODKEY|ControlMask|ShiftMask, XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 1 }} },
+    { MODKEY|ControlMask|ShiftMask, XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -1 }} },
+    { MODKEY|ControlMask|ShiftMask, XK_Right,  moveresize,     {.v = (int []){ 0, 0, 1, 0 }} },
+    { MODKEY|ControlMask|ShiftMask, XK_Left,   moveresize,     {.v = (int []){ 0, 0, -1, 0 }} },
     /* Workspace Tags                                                   */
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
