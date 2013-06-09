@@ -28,7 +28,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
  * 3: images/comics
  * 4: documents
  * 5: everything else */
-static const char *tags[] = { "trm", "www", "img", "doc", "msc" };
+static const char *tags[] = { "trm", "www", "img", "doc", "msc", "6", "7", "8", "9", "_" };
 
 static const Rule rules[] = {
     /* class      instance    title           tags mask  isfloating  monitor */
@@ -127,9 +127,9 @@ static Key keys[] = {/*{{{*/
     { MODKEY,                       XK_r,      setlayout,      {.v = &layouts[0]} },
     { MODKEY,                       XK_space,  setlayout,      {0} },
     { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-    /* See all tags
-    { MODKEY,                       XK_0,      view,           {.ui = ~0 } },*/
-    { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+    /* See all tags */
+    { MODKEY,                       XK_a,      view,           {.ui = ~0 } },
+    { MODKEY|ControlMask,           XK_a,      tag,            {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_j,      focusmon,       {.i = -1 } },
     { MODKEY|ShiftMask,             XK_k,      focusmon,       {.i = +1 } },
     { MODKEY|ControlMask,           XK_k,      tagmon,         {.i = -1 } },
@@ -153,10 +153,11 @@ static Key keys[] = {/*{{{*/
     TAGKEYS(                        XK_3,                      2)
     TAGKEYS(                        XK_4,                      3)
     TAGKEYS(                        XK_5,                      4)
-    /*TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_6,                      5)
     TAGKEYS(                        XK_7,                      6)
     TAGKEYS(                        XK_8,                      7)
-    TAGKEYS(                        XK_9,                      8)*/
+    TAGKEYS(                        XK_9,                      8)
+    TAGKEYS(                        XK_0,                      9)
 };/*}}}*/
 
 static Button buttons[] = {/*{{{*/
