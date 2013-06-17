@@ -99,7 +99,7 @@ macro index S "<enter-command>unset wait_key<enter><shell-escape>msmtp-listqueue
 
 #
 # Mario Holbe suggests:
-#:macro index B 
+#:macro index B
 # macro pager b ‘<enter-command>toggle sidebar_visible<enter><redraw-screen>’
 #
 

@@ -23,7 +23,7 @@
 # ${ENV:-~/.mkshrc}: mksh initialisation file for interactive shells
 
 # Set colors {{{
-unset ALL_OFF BOLD BLUE GREEN RED YELLOW BRED 
+unset ALL_OFF BOLD BLUE GREEN RED YELLOW BRED
 
 ALL_OFF="$(tput sgr0)"
 BOLD="$(tput bold)"

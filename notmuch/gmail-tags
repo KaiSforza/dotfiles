@@ -4,7 +4,7 @@
 
 # ArchLinux tags
 +archlinux +ML -- to:"@archlinux.org"
-+aur -ML      -- from:"aur-notify@archlinux.org" 
++aur -ML      -- from:"aur-notify@archlinux.org"
 +arch-forum -ML -- from:"nobody@archlinux.org"
 +arch-general -- to:"arch-general@archlinux.org"
 +arch-dev-pub -- to:"arch-dev-public@archlinux.org"

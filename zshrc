@@ -13,7 +13,7 @@ done
 #. ~/.private/zshkeys.zsh
 
 alias less=$PAGER
-alias zless=$PAGER 
+alias zless=$PAGER
 autoload zmv
 
 autoload -U edit-command-line
@@ -31,11 +31,11 @@ autoload -U regex-replace
 src()
 {
   autoload -U zrecompile
-  [ -f ~/.zshrc ] && zrecompile -p ~/.zshrc                    
-  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump            
-  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump            
-  [ -f ~/.zshrc.zwc.old ] && rm -f ~/.zshrc.zwc.old            
-  [ -f ~/.zcompdump.zwc.old ] && rm -f ~/.zcompdump.zwc.old    
+  [ -f ~/.zshrc ] && zrecompile -p ~/.zshrc
+  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump
+  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump
+  [ -f ~/.zshrc.zwc.old ] && rm -f ~/.zshrc.zwc.old
+  [ -f ~/.zcompdump.zwc.old ] && rm -f ~/.zcompdump.zwc.old
   source ~/.zshrc
 }
 

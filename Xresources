@@ -23,7 +23,7 @@ URxvt.url-select.underline: true
 URxvt.fading:       15
 URxvt.fadeColor:    #002b36
 
-! urxvt colors ---------------------------------------------------------- 
+! urxvt colors ----------------------------------------------------------
 URxvt.background:   #000000
 URxvt.foreground:   #efefef
 URxvt.cursorColor:  #B15C00

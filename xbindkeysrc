@@ -10,38 +10,38 @@
 #"amixer set "Master" 5%+ unmute"
 "ponymix unmute && ponymix increase 5"
     m:0x0 + c:123
-    XF86AudioRaiseVolume 
+    XF86AudioRaiseVolume
 
 #decrase volume:
 #"amixer set "Master" 5%- unmute"
 "ponymix unmute && ponymix decrease 5"
     m:0x0 + c:122
-    XF86AudioLowerVolume 
+    XF86AudioLowerVolume
 
 # Toggle mute:
 #"amixer set "Master" toggle"
 "ponymix toggle"
     m:0x0 + c:121
-    XF86AudioMute 
+    XF86AudioMute
 
 #=======================
 #MPD manipulation
 #MPD next song
 "mpc -h 127.0.0.1 -p 7700 next"
     m:0x0 + c:171
-    XF86AudioNext 
+    XF86AudioNext
 #MPD stop playing
 "mpc -h 127.0.0.1 -p 7700 stop"
     m:0x0 + c:174
-    XF86AudioStop 
+    XF86AudioStop
 #MPD prev song
 "mpc -h 127.0.0.1 -p 7700 prev"
     m:0x0 + c:173
-    XF86AudioPrev 
+    XF86AudioPrev
 #MPD pase/unpause
 "mpc -h 127.0.0.1 -p 7700 toggle"
     m:0x0 + c:172
-    XF86AudioPlay 
+    XF86AudioPlay
 
 #=========================
 #Touchpad settings.
@@ -49,17 +49,17 @@
 # Turn off touchpad
 "synclient TouchPadOff=`synclient -l | grep -ce TouchpadOff.*0`"
     m:0x0 + c:199
-    XF86TouchpadToggle 
+    XF86TouchpadToggle
 
 #sleep
 "systemctl --user restart i3lock && systemctl suspend "
     m:0x0 + c:150
-    XF86Sleep 
+    XF86Sleep
 
 #lock
 "systemctl --user restart i3lock"
     m:0x0 + c:160
-    XF86ScreenSaver 
+    XF86ScreenSaver
 
 ##steam voice stuff
 #"

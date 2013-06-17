@@ -190,7 +190,7 @@ quick = 20
 # In this case a call to imapfilter to filter mail before the sync process
 # starts and a custom shell script after the sync completes.
 # The pre sync script has to complete before a sync to the account will
-# start. 
+# start.
 
 # presynchook = imapfilter
 # postsynchook = notifysync.sh
@@ -346,7 +346,7 @@ remoteuser = '1007380@gmail.com'
 #
 # 2. The remote password stored in this file with the remotepass
 #    option. Any '%' needs to be encoded as '%%'. Example:
-#remotepass = 
+#remotepass =
 #
 # 3. The remote password stored as a single line in an external
 #    file, which is referenced by the remotefile option.  Example:
