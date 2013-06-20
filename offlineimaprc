@@ -1,5 +1,5 @@
 # Offlineimap sample configuration file
-
+# Header {{{
 # This file documents *all* possible options and can be quite scary.
 # Looking for a quick start?  Take a look at offlineimap.conf.minimal.
 # More details can be found in the included user documention, which is
@@ -22,10 +22,8 @@
 # would set the trashfolder setting for your German gmail accounts.
 
 # NOTE2: This implies that any '%' needs to be encoded as '%%'
-
-##################################################
-# General definitions
-##################################################
+# }}}
+# General definitions # {{{
 
 [general]
 
@@ -114,11 +112,8 @@ socktimeout = 60
 # Set fsync = false ot disable fsync.
 #
 fsync = false
-
-##################################################
-# Mailbox name recorder
-##################################################
-
+# }}}
+# Mailbox name recorder # {{{
 [mbnames]
 
 # offlineimap can record your mailbox names in a format you specify.
@@ -146,24 +141,23 @@ footer = "\n"
 # Note that this filter can be used only to further restrict mbnames
 # to a subset of folders that pass the account's folderfilter.
 
+# }}}
 
-##################################################
-# Accounts
-##################################################
+# Accounts# {{{
 
 # This is an account definition clause.  You'll have one of these
 # for each account listed in general/accounts above.
 
-[Account Gmail]
-########## Basic settings
+[Account Gmail] # {{{
+########## Basic settings {{{
 
 # These settings specify the two folders that you will be syncing.
 # You'll need to have a "Repository ..." section for each one.
 
 localrepository = Gmail-local
 remoterepository = Gmail-remote
-
-########## Advanced settings
+# }}}
+########## Advanced settings {{{
 
 # You can have offlineimap continue running indefinitely, automatically
 # syncing your mail periodically.  If you want that, specify how
@@ -184,7 +178,7 @@ autorefresh = 5
 # another full synchronization (requires autorefresh).  Updates are
 # always performed after <autorefresh> minutes, be they quick or full.
 
-quick = 20
+quick = -1
 
 # You can specify a pre and post sync hook to execute a external command.
 # In this case a call to imapfilter to filter mail before the sync process
@@ -250,10 +244,9 @@ status_backend = sqlite
 # messages on windows drive, but you will probably loose compatibility with
 # other programs working with the maildir
 #
-#maildir-windows-compatible = no
-
-
-[Repository Gmail-local]
+maildir-windows-compatible = no
+# }}}
+[Repository Gmail-local] # {{{
 
 # Each repository requires a "type" declaration. The types supported for
 # local repositories are Maildir and IMAP.
@@ -280,15 +273,14 @@ localfolders = ~/.mutt/gmail
 #
 # In nearly all cases, the default should be fine.
 #
-#restoreatime = no
-
-
-
-[Repository Gmail-remote]
+restoreatime = no
+# }}}
+[Repository Gmail-remote] # {{{
 # And this is the remote repository.  We only support IMAP or Gmail here.
 
 type = Gmail
 
+# Authentication {{{
 # The following can fetch the account credentials via a python expression that
 # is parsed from the pythonfile parameter. For example, a function called
 # "getcredentials" that parses a file "filename" and returns the account
@@ -374,8 +366,9 @@ remotepassfile = /home/wgiokas/.offlineimap/gmail
 #    remoteusereval = get_username("imap.example.net")
 #    This method can be used to design more elaborate setups, e.g. by
 #    querying the gnome-keyring via its python bindings.
+# }}}
 
-########## Advanced settings
+########## Advanced settings {{{
 
 # Some IMAP servers need a "reference" which often refers to the "folder
 # root".  This is most commonly needed with UW IMAP, where you might
@@ -412,7 +405,7 @@ remotepassfile = /home/wgiokas/.offlineimap/gmail
 # cases, it may slow things down.  The safe answer is 1.  You should
 # probably never set it to a value more than 5.
 
-maxconnections = 4
+maxconnections = 3
 
 # OfflineIMAP normally closes IMAP server connections between refreshes if
 # the global option autorefresh is specified.  If you wish it to keep the
@@ -541,34 +534,4 @@ folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
 # type of Repository (Maildir, Imap, etc).
 #
 #readonly = False
-
-#[Repository GmailExample]
-
-# A repository using Gmail's IMAP interface.  Any configuration
-# parameter of `IMAP` type repositories can be used here.  Only
-# `remoteuser` (or `remoteusereval` ) is mandatory.  Default values
-# for other parameters are OK, and you should not need fiddle with
-# those.
-#
-# The Gmail repository will use hard-coded values for `remotehost`,
-# `remoteport`, `tunnel` and `ssl`.  (See
-# http://mail.google.com/support/bin/answer.py?answer=78799&topic=12814)
-# Any attempt to set those parameters will be silently ignored.
-
-#type = Gmail
-
-# Specify the Gmail user name. This is the only mandatory parameter.
-#remoteuser = username@gmail.com
-
-# The trash folder name may be different from [Gmail]/Trash
-# for example on german googlemail, this setting should be
-#
-# trashfolder = [Google Mail]/Papierkorb
-#
-# The same is valid for the spam folder
-#
-# spamfolder = [Google Mail]/Spam
-
-# Enable 1-way synchronization. See above for explanation.
-#
-#readonly = False
+# }}} }}} }}} }}}
