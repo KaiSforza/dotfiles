@@ -19,7 +19,7 @@ autoload zmv
 autoload -U edit-command-line
 zle -N edit-command-line
 
-eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
+eval "$(sed -nE 's/^([^#]+): /bindkey \1 /' /etc/inputrc)"
 
 #autoload complist
 autoload -U compinit;
