@@ -16,7 +16,7 @@ URxvt.boldFont:             -*-proggytinysz-bold-*-*-*-10-*-*-*-*-*-*-*
 URxvt.perl-ext:             default,url-select
 URxvt.keysym.M-u:           perl:url-select:select_next
 !URxvt.url-select.launcher:  /usr/bin/luakit
-URxvt.url-select.launcher:  /home/wgiokas/git/gtmanfred/zurl/zurl2.zsh
+URxvt.url-select.launcher:  /home/wgiokas/git/gtmanfred/zurl/zurl.zsh
 URxvt.url-select.underline: true
 
 ! fade colors -----------------------------------------------------------
