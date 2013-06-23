@@ -9,8 +9,14 @@ static const unsigned int systrayspacing = 0;   /* systray spacing */
 static const Bool showsystray       = True;     /* False means no systray */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;    /* False means bottom bar */
+static const char normbordercolor[] = "#333333" ;
+static const char normbgcolor[]     = "#000000" ;
+static const char normfgcolor[]     = "#dddddd" ;
+static const char selbordercolor[]  = "#4c7899" ;
+static const char selbgcolor[]      = "#333333" ;
+static const char selfgcolor[]      = "#eeeeee" ;
 #define NUMCOLORS                     8         /* Number of colors */
-static const char colors[NUMCOLORS][ColLast][8] = {
+static const char colors[NUMCOLORS][SchemeLast][8] = {
   // border   foreground background
   { "#333333", "#dddddd", "#000000" },  // x01 normal
   { "#4c7899", "#eeeeee", "#333333" },  // x02 selected
