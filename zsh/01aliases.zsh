@@ -11,6 +11,8 @@ alias -s java=$EDITOR
 alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
 
+alias tmx='tmux -S /run/tmux-1000/default '
+
 # Normal aliases
 alias ls='ls --color=auto -F'
 alias lsd='ls -ld *(-/DN)'
