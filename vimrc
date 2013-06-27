@@ -118,12 +118,12 @@ if version >= 703
   "This stuff doesn't like working with old versions, I think 7.3 was when
   "this was included.
   autocmd FileType text setlocal textwidth=78 colorcolumn=78
-  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 textwidth=79  colorcolumn=79
+  au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=79  colorcolumn=79
   set colorcolumn=76
   hi ColorColumn ctermbg=black guibg=black
 else
   autocmd FileType text setlocal textwidth=78
-  au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 textwidth=79
+  au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=79
 endif "}}}
 
 "au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
