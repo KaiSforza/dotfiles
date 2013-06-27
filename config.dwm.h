@@ -16,7 +16,7 @@ static const char selbordercolor[]  = "#4c7899" ;
 static const char selbgcolor[]      = "#333333" ;
 static const char selfgcolor[]      = "#eeeeee" ;
 #define NUMCOLORS                     8         /* Number of colors */
-static const char colors[NUMCOLORS][SchemeLast][8] = {
+static const char colors[NUMCOLORS][ColLast][8] = {
   // border   foreground background
   { "#333333", "#dddddd", "#000000" },  // x01 normal
   { "#4c7899", "#eeeeee", "#333333" },  // x02 selected
