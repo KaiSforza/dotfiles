@@ -32,6 +32,11 @@ alias ...='cd ../..'
 # command L equivalent to command |less
 alias -g L='|less' 
 
+# record screen and sound from mic
+alias ssrec='ffmpeg -f alsa -i hw:0 -ac 2 -f x11grab -s 1600x900 -r 25 -i :0.0'
+# record only screen
+alias srec='ffmpeg -f x11grab -s 1600x900 -r 25 -i :0.0'
+
 # command S equivalent to command &> /dev/null &
 alias -g S='&> /dev/null &'
 
