@@ -69,7 +69,7 @@ set sidebar_delim='│'
 set sidebar_sort=no
 
 # which mailboxes to list in the sidebar
-mailboxes =INBOX =ML =rackspace =ML-kernel =git-bugs =FORUM-arch =AUR =Junk =Phone =depth =pacman-dev
+mailboxes =INBOX =ML =ML.arch =ML.systemd =ML.xorg =ML.yum =ML.sl =rackspace =ML-kernel =git-bugs =FORUM-arch =AUR =Junk =Phone =github =twitch
 
 # color of folders with new mail
 color sidebar_new yellow default
