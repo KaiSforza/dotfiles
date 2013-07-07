@@ -20,7 +20,7 @@ URxvt.url-select.launcher:  /home/wgiokas/git/gtmanfred/zurl/zurl.zsh
 URxvt.url-select.underline: true
 
 ! fade colors -----------------------------------------------------------
-URxvt.fading:       15
+URxvt.fading:       20
 URxvt.fadeColor:    #002b36
 
 ! urxvt colors ----------------------------------------------------------
@@ -28,7 +28,7 @@ URxvt.background:   #000000
 URxvt.foreground:   #efefef
 URxvt.cursorColor:  #B15C00
 !! black
-URxvt.color0:       #111111
+URxvt.color0:       #000000
 URxvt.color8:       #444444
 !! red
 URxvt.color1:       #D30000
