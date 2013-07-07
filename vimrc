@@ -8,14 +8,13 @@ filetype plugin indent on
 syntax on
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
 
-set backspace=2 "backspace over everything
-"set cursorline  "Show line cursor is on
-set fcs=vert:│,fold:-    " solid instead of broken line for vert splits
-set hidden               " hide when switching buffers, don't unload
+set backspace=2         "backspace over everything
+set fcs=vert:│,fold:-   " solid instead of broken line for vert splits
+set hidden              " hide when switching buffers, don't unload
 set laststatus=2
-set mouse=a              " enable mouse in all modes
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set mouse=a             " enable mouse in all modes
+set ruler               " show the cursor position all the time
+set showcmd             " display incomplete commands
 set spelllang=en_us
 set title
 set wildmenu
@@ -31,7 +30,7 @@ set fdc=2
 " Tabs
 set autoindent
 set expandtab
-set shiftwidth=2    " Number of spaces to use for each step of (auto)indent.
+set shiftwidth=2        " Num of spaces to use for each (auto)indent.
 set smarttab
 set softtabstop=2
 set tabstop=2
@@ -52,11 +51,6 @@ let g:tex_flavor="latex"
 let g:Tex_ViewRule_dvi = 'xdvi'
 " }}}
 
-" Pathogen {{{
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-" }}}
-
 " From gtmanfred {{{
 let g:netrw_http_cmd='curl -sL'
 let g:netrw_http_xcmd='-o'
@@ -65,9 +59,9 @@ let g:clang_library_path = "/usr/lib"
 let g:clang_auto_select = 1
 " }}}
 
-set backup		" keep a backup file
-set history=50		" keep 50 lines of command line history
-set number		" display line numbers
+set backup              " keep a backup file
+set history=50          " keep 50 lines of command line history
+set number              " display line numbers
 
 "Color scheme
 set background=dark
@@ -105,12 +99,12 @@ autocmd BufReadPost *
   \ endif
 augroup END
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
+" Convenient command to see the difference between the current buffer and
+" the file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 " Version specific stuffs{{{
@@ -118,20 +112,25 @@ if version >= 703
   "This stuff doesn't like working with old versions, I think 7.3 was when
   "this was included.
   autocmd FileType text setlocal textwidth=78 colorcolumn=78
-  au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=79  colorcolumn=79
+  au FileType python setlocal tabstop=4 expandtab shiftwidth=4
+        \ softtabstop=4 textwidth=79  colorcolumn=79
   set colorcolumn=76
-  hi ColorColumn ctermbg=black guibg=black
+  hi ColorColumn ctermbg=1 guibg=1
 else
   autocmd FileType text setlocal textwidth=78
-  au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 textwidth=79
+  au FileType python setlocal tabstop=4 expandtab shiftwidth=4
+        \ softtabstop=4 textwidth=79
 endif "}}}
 
 "au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 "au FileType java set makeprg=/usr/bin/javac\ -d\ ../bin\ %
+au FileType PKGBUILD set makeprg=/usr/bin/makepkg
+
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.md  set ft=markdown tw=76
 au BufNewFile,BufRead *.rst set tw=76
-au BufNewFile,BufRead *.asm set tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.asm set tabstop=4 expandtab shiftwidth=4
+      \ softtabstop=4
 au FileType haskell setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
