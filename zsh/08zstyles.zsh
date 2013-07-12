@@ -37,7 +37,6 @@ zstyle ':completion:*'                         verbose yes
 zstyle ':completion:*'                         special-dirs true
 
 zstyle ':completion:*'                         matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*'                         list-colors ''
 zstyle ':completion:*'                         completer _oldlist _expand _complete _match _approximate #_force_rehash 
 zstyle ':completion:*'                         menu select=2
 zstyle ':completion:*'                         rehash yes

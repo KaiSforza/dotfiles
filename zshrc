@@ -7,6 +7,10 @@ path=($HOME/.cabal/bin $path)
 autoload $HOME/.zsh/functions/[^_]*(.:t)
 autoload -U promptinit && promptinit
 prompt kaictl2
+if [[ -a $HOME/.dir_colors ]]; then
+  eval $(dircolors $HOME/.dir_colors)
+fi
+
 for f in $HOME/.zsh/*.zsh(on); do
     . $f
 done
