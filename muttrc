@@ -41,7 +41,7 @@ source ~/.mutt/gpg.rc
 set pgp_autosign=yes
 
 # Key Bindings
-bind	index	"^"	imap-fetch-mail
+#bind	index	"^"	imap-fetch-mail
 
 # Sorting
 set sort=threads
@@ -128,3 +128,5 @@ subscribe -group systemd systemd-devel@lists.freedesktop.org
 subscribe -group suckless dev@suckless.org
 # Yum mailing list
 subscribe -group yum yum@lists.baseurl.org
+
+# Misc Lists
