@@ -75,10 +75,9 @@ fi
 
 #setopt completealiases
 compdef _pacman pc=pacman
-compdef _systemd sc=systemctl
-compdef _systemd scu=systemctl
+compdef _systemctl sc=systemctl
+compdef _systemctl scu=systemctl
 compdef _sudo s=sudo
-compdef _systemd journalctl=journalctl
 compdef _cower aurctl=cower
 
 #export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/home/wgiokas/perl5";
