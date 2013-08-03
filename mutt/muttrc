@@ -1,0 +1,54 @@
+# Main options {{{
+set mbox_type = Maildir
+# Set it to a level above the actual mailboxes, then they can be defined
+# with a simple 'mailbox/folder' in the conf.d/mailboxes file.
+set folder = $HOME/.mutt/Maildirs
+
+set spoolfile     = +gmail/INBOX
+set record        = ~/.mutt/Maildirs/sent
+# store message headers locally to speed things up
+# if hcache is a folder, Mutt will create sub cache folders for each account which may speeds things even more up
+set header_cache  = ~/.mutt/.cache/gmail_hcache
+
+# specify where to save and/or look for postponed messages
+set postponed     = ~/.mutt/Maildirs/Drafts
+
+set allow_ansi    = yes
+
+set sendmail      = ~/bin/msmtp-enqueue
+
+set realname      = "William Giokas"
+set hostname      = "wst420"
+set editor        = vim
+set signature     = ~/.mutt/conf.d/signature
+
+set index_format  = "%5C %Z %2M %[%F] %-20.20F (%4c) %s"
+
+# Sorting
+set sort          = threads
+
+# so you don't scroll down a full page, leaving 4 lines at the top/bottom
+set pager_context	= 4
+set pager_stop		= "yes"
+set pager_index_lines	= 10
+set fast_reply		= "yes"
+set smart_wrap
+
+# }}}
+
+# Mailcap {{{
+set mailcap_path  = ~/.mutt/conf.d/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+# }}}
+
+# source things {{{
+set pgp_autosign  = yes
+source ~/.mutt/conf.d/gpg.rc
+
+source ~/.mutt/conf.d/colors.zenburn
+source ~/.mutt/conf.d/aliases
+source ~/.mutt/conf.d/macros
+source ~/.mutt/conf.d/sidebar
+source ~/.mutt/conf.d/subscriptions
+# }}}

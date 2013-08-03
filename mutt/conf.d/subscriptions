@@ -1,0 +1,23 @@
+# arch linux lists
+subscribe -group archlinux *@archlinux.org
+subscribe -group archlinux-aur aur-general@archlinux.org
+subscribe -group archlinux-aur-dev aur-dev@archlinux.org
+subscribe -group archlinux-gen arch-general@archlinux.org
+subscribe -group archlinux-pacman pacman-dev@archlinux.org
+subscribe -group archlinux-dev arch-dev-public@archlinux.org
+subscribe -group archlinux-mirrors arch-mirrors@archlinux.org
+subscribe -group archlinux-proj arch-projects@archlinux.org
+subscribe -group archlinux-releng arch-releng@archlinux.org
+# xorg lists
+subscribe -group xorg xorg@*freedesktop.org
+subscribe -group xorg xorg-announce@lists.freedesktop.org
+subscribe -group xorg xorg@lists.x.org
+# systemd lists
+subscribe -group systemd systemd-devel@lists.freedesktop.org
+# suckless ml
+subscribe -group suckless dev@suckless.org
+# Yum mailing list
+subscribe -group yum yum@lists.baseurl.org
+
+# Misc Lists
+# vim: ft=muttrc

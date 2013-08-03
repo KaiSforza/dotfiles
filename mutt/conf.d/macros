@@ -1,0 +1,7 @@
+# msmtp-listqueue and msmtp-runqueue stuffs
+macro index S "<enter-command>unset wait_key<enter><shell-escape>msmtp-listqueue;read -p 'Send this mail? ' _a; if [[ $_a == 'y' ]]; then msmtp-runqueue; fi<enter>" "List and send queued emails"
+# 'L' performs a notmuch query, showing only the results
+macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+# 'A' shows all messages again
+macro index A "<limit>all\n" "show all messages (undo limit)"
+# vim: ft=muttrc

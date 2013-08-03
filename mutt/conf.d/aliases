@@ -1,0 +1,29 @@
+# Alias list shite
+set alias_file = ~/.mutt/conf.d/aliases
+set sort_alias = alias
+set reverse_alias = yes
+
+# vim: ft=muttrc
+
+alias Self William Giokas <1007380@gmail.com>
+alias prof-england \"England, Carolyn\" <england@cod.edu>
+alias torvalds Linus Torvalds <torvalds@linux-foundation.org>
+alias Joseph_Mathews Joseph Mathews <MATHEWS@COD.EDU>
+alias aur-general aur general <aur-general@archlinux.org>
+alias thewizord God of Insurrection <insurrection@tormail.org>
+alias numeral Ofear <numeral@overambitio.us>
+alias arch-projects Arch Linux projects development discussion <arch-projects@archlinux.org>
+alias jimmy James Loyd <jamestloyd@gmail.com>
+alias ralynn.brown Ralynn Brown <ralynn.brown@RACKSPACE.COM>
+alias ying_linda linda ying <ying_linda@live.com>
+alias l.giokas Louis Giokas <l.giokas@ieee.org>
+alias everet.taylor Everet Taylor <everet.taylor@RACKSPACE.COM>
+alias chicagolinux-discuss chilinux <chicagolinux-discuss@googlegroups.com>
+alias giovanni.delvalle Giovanni Del Valle <giovanni.delvalle@RACKSPACE.COM>
+alias herb.jackson Herb Jackson <herb.jackson@RACKSPACE.COM>
+alias pclouds Duy Nguyen <pclouds@gmail.com>
+alias graysky graysky <graysky@archlinux.us>
+alias ericrashcraft Eric Ashcraft <ericrashcraft@gmail.com>
+alias mackenzie.hasley Mackenzie Hasley <mackenzie.hasley@gmail.com>
+alias systemd-devel Systemd Devel List <systemd-devel@lists.freedesktop.org>
+alias tjneenan Tyler Neenan <tjneenan@uchicago.edu>
