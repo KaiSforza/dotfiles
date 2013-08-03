@@ -37,7 +37,7 @@ metadata = ~/.offlineimap
 # You will need to specify one section per account below.  You may
 # not use "general" for an account name.
 
-accounts = Gmail,kaictl
+accounts = Gmail, kaictl
 
 # Offlineimap can synchronize more than one account at a time.  If you
 # want to enable this feature, set the below value to something
@@ -188,7 +188,7 @@ quick = -1
 
 # presynchook = imapfilter
 # postsynchook = notifysync.sh
-postsynchook = notmuch new
+#postsynchook = notmuch new
 
 # You can also specify parameters to the commands
 # presynchook = imapfilter -c someotherconfig.lua
@@ -257,7 +257,7 @@ type = Maildir
 # to maildirs created under this path.  OfflineIMAP will create the
 # maildirs for you as needed.
 
-localfolders = ~/.mutt/gmail
+localfolders = ~/.mutt/Maildirs/gmail
 
 # You can specify the "folder separator character" used for your Maildir
 # folders.  It is inserted in-between the components of the tree. If you
@@ -536,7 +536,7 @@ folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
 #readonly = False
 # }}} }}} }}}
 
-[Account kaictl] # {{{
+[Account kaictl] # DISABLED {{{
 ########## Basic settings {{{
 localrepository = kaictl-local
 remoterepository = kaictl-remote
@@ -544,7 +544,7 @@ remoterepository = kaictl-remote
 ########## Advanced settings {{{
 autorefresh = 5
 quick = -1
-postsynchook = notmuch new
+#postsynchook = notmuch new
 status_backend = sqlite
 # maxsize = 2000000
 # maxage =
@@ -552,18 +552,19 @@ maildir-windows-compatible = no
 # }}}
 [Repository kaictl-local] # {{{
 type = Maildir
-localfolders = ~/.mutt/kaictl
+localfolders = ~/.mutt/Maildirs/kaictl
 #sep = .
 restoreatime = no
 # }}}
 [Repository kaictl-remote] # {{{
 type = IMAP
 # Authentication {{{
-remotehost = kaictl.gtmanfred.com
-#ssl = yes
+remotehost = kaictl.net
+ssl = yes
 #sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-#cert_fingerprint = <SHA1_of_server_certificate_here>
-remoteport = 143
+#cert_fingerprint = 56b6c5d49371ab908af97ea9e10a3f0af4768012
+cert_fingerprint = 84bc221d6053fdae0e9311bf2a37f081575cc31a
+remoteport = 993
 remoteuser = 'wgiokas'
 #remotepass = ''
 remotepassfile = /home/wgiokas/.offlineimap/kaictl
