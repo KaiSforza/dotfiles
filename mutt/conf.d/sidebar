@@ -21,7 +21,8 @@ mailboxes \
           =------------------------------- \
           =kaictl/INBOX \
           =-------------------------------- \
-          =sent
+          =sent \
+          =Drafts \
 
 # color of folders with new mail
 color sidebar_new yellow default
