@@ -51,4 +51,5 @@ source ~/.mutt/conf.d/aliases
 source ~/.mutt/conf.d/macros
 source ~/.mutt/conf.d/sidebar
 source ~/.mutt/conf.d/subscriptions
+source ~/.mutt/conf.d/alternates
 # }}}

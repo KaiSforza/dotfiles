@@ -1,0 +1,2 @@
+alternates -group kaictl.net  '.*@kaictl.net'
+alternates -group gmail       '1007380@gmail.com'
