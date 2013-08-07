@@ -544,7 +544,7 @@ remoterepository = kaictl-remote
 ########## Advanced settings {{{
 autorefresh = 5
 quick = -1
-#postsynchook = notmuch new
+postsynchook = notmuch --config=/home/wgiokas/.notmuch-config-kaictl new
 status_backend = sqlite
 # maxsize = 2000000
 # maxage =
