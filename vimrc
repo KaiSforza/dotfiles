@@ -1,3 +1,4 @@
+let $PYTHONPATH="/usr/lib/python3.3/site-packages"
 set nocompatible
 set encoding=utf-8
 

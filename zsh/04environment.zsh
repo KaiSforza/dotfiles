@@ -20,9 +20,6 @@ export VISUAL=vim
 export PAGER=less
 export LESS="-RM"
 
-# Support for vim-powerline
-export PYTHONPATH=/usr/lib/python3.3/site-packages
-
 # support colors in less
 export LESS_TERMCAP_mb=$'\E[01;31m'             # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'        # begin bold
