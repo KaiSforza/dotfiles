@@ -20,4 +20,5 @@ subscribe -group suckless dev@suckless.org
 subscribe -group yum yum@lists.baseurl.org
 
 # Misc Lists
+subscribe -group misc chicagolinux-discuss@googlegroups.com
 # vim: ft=muttrc
