@@ -15,7 +15,9 @@ set postponed     = ~/.mutt/Maildirs/Drafts
 
 set allow_ansi    = yes
 
-set sendmail      = ~/bin/msmtp-enqueue
+set sendmail      = "~/bin/msmtpq"
+set sendmail_wait = -1
+
 
 set realname      = "William Giokas"
 set hostname      = "wst420"
