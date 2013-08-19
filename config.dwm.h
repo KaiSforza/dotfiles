@@ -33,7 +33,9 @@ static const char colors[NUMCOLORS][ColLast][8] = {
  * 2: browser
  * 3: images/comics
  * 4: documents
- * 5: everything else */
+ * 5: everything else
+ * WM_CLASS(STRING) = instance, class
+ * WM_NAME(STRING) = title */
 static const char *tags[] = { "trm", "www", "img", "doc", "msc", "6", "7", "8", "9", "_" };
 
 static const Rule rules[] = {
@@ -57,6 +59,7 @@ static const Rule rules[] = {
     { "mpv",      NULL,       NULL,           1 << 2,       True,        1  },
     { NULL,       NULL,       "Steam",        1 << 4,       True,        -1 },
     { "Steam",    NULL,       NULL,           1 << 4,       True,        -1 },
+    { "Wine",     "SC2.exe",  "StarCraft II", 1 << 4,       True,        -1 },
     { "Gvbam",    NULL,       NULL,           1 << 4,       True,        -1 },
     { "Display",  NULL,       NULL,                0,       True,        -1 },
     { "Vncviewer",NULL,       NULL,                0,       True,        -1 },
