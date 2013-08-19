@@ -1,7 +1,7 @@
 [[ $- != *i* ]] && return
 #if [[ $TERM != "screen-256color" && $TTY != /dev/tty* ]];then tmux a || tmux -2 -l -q && exit; fi
 
-fpath=($HOME/.zsh/completion $HOME/.zsh/themes $HOME/.zsh/functions $fpath )
+fpath=($HOME/.zsh/completion $HOME/.zsh/completion/systemd $HOME/.zsh/themes $HOME/.zsh/functions $fpath )
 path=($HOME/.cabal/bin $path)
 
 autoload $HOME/.zsh/functions/[^_]*(.:t)
