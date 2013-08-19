@@ -8,7 +8,7 @@
 	status = auto
 [sendemail]
   #smtpserver = /usr/bin/msmtp
-  smtpserver = /home/wgiokas/bin/msmtp-enqueue
+  smtpserver = /home/wgiokas/bin/msmtpq
 [alias]
 	st = status
 	cm = commit
