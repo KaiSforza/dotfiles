@@ -61,6 +61,10 @@ let g:clang_auto_select = 1
 let g:tar_cmd = 'bsdtar'
 " }}}
 
+" YCM {{{
+let g:ycm_extra_conf_globlist = [ '~/git/KaiSforza/*', '*' ]
+" }}}
+
 set backup              " keep a backup file
 set history=50          " keep 50 lines of command line history
 set number              " display line numbers
