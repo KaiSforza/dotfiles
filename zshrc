@@ -86,8 +86,4 @@ compdef _systemctl scu=systemctl
 compdef _sudo s=sudo
 compdef _cower aurctl=cower
 
-#export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/home/wgiokas/perl5";
-#export PERL_MB_OPT="--install_base /home/wgiokas/perl5";
-#export PERL_MM_OPT="INSTALL_BASE=/home/wgiokas/perl5";
-#export PERL5LIB="/home/wgiokas/perl5/lib/perl5:$PERL5LIB";
-export PATH="/home/wgiokas/perl5/bin:/home/wgiokas/.gem/ruby/2.0.0/bin:$PATH";
+export PATH="/home/wgiokas/perl5/bin:$PATH";
