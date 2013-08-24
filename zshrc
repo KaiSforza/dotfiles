@@ -16,6 +16,12 @@ for f in $HOME/.zsh/*.zsh(on); do
 done
 #. ~/.private/zshkeys.zsh
 
+# Load up the virtualenv if it exists
+if [[ -f $HOME/virtualenv/bin/activate ]]; then
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  . $HOME/virtualenv/bin/activate
+fi
+
 alias less=$PAGER
 alias zless=$PAGER
 autoload zmv
