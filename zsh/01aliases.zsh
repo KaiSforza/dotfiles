@@ -26,7 +26,6 @@ alias psg='ps aux | grep '
 alias f='find |grep'
 alias c="clear"
 alias dir='ls -1'
-alias ..='cd ..'
 alias ...='cd ../..'
 
 # command L equivalent to command |less
