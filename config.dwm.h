@@ -101,6 +101,7 @@ static const char *scucmd[]      = { "scudmenu", NULL };/*}}}*/
 static const char *termcmd[]        = { "urxvtc", NULL };
 static const char *dwbcmd[]         = { "systemctl", "--user", "start", "dwb",     NULL};
 static const char *luakitcmd[]      = { "systemctl", "--user", "start", "luakit",  NULL};
+static const char *firefoxcmd[]     = { "systemctl", "--user", "start", "firefox",  NULL};
 static const char *mcomixcmd[]      = { "systemctl", "--user", "start", "mcomix",  NULL};
 static const char *zathuracmd[]     = { "systemctl", "--user", "start", "zathura", NULL};/*}}}*/
 
@@ -147,6 +148,7 @@ static Key keys[] = {/*{{{*/
     { MODKEY|ControlMask,           XK_j,      tagmon,         {.i = +1 } },
     /* Systemd user unit hotkeys                                        */
     { MODKEY|ShiftMask,             XK_n,      spawn,          {.v = luakitcmd } },
+    { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefoxcmd } },
     { MODKEY|ShiftMask,             XK_b,      spawn,          {.v = dwbcmd } },
     { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mcomixcmd } },
     { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = zathuracmd } },
