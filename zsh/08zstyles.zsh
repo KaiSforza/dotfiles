@@ -26,10 +26,10 @@ zstyle ':completion:*:options'                 description 'yes'
 zstyle ':completion:*:options'                 auto-description '%d'
 zstyle ':completion:*:correct:*'               original true
 zstyle ':completion:*:correct:*'               insert-unambiguous true
-zstyle ':completion:*:corrections'             format '%B%F{green}>> %d (errors: %e)%f%b'
+zstyle ':completion:*:corrections'             format '%B%F{yellow}>> %d (%e error)%f%b'
 zstyle ':completion:*:descriptions'            format '%B%F{magenta}>> %d%f%b'
 zstyle ':completion:*:messages'                format '%B%F{cyan}>> %d%f%b'
-zstyle ':completion:*:warnings'                format '%B%F{red}>> no matches found%f%b'
+zstyle ':completion:*:warnings'                format '%B%F{red}>> no matches found!%f%b'
 zstyle ':completion:*:default'                 list-prompt '%B%S%M matches%s%b'
 zstyle ':completion:*'                         format '%B%F{cyan}>> %d%f%b'
 zstyle ':completion:*'                         group-name ''
@@ -45,9 +45,9 @@ zstyle ':completion:*:functions'               ignored-patterns '_*'
 zstyle ':completion:*:match:*'                 original only
 zstyle ':completion:*:approximate:*'           max-errors 1 numeric
 
-zstyle ':completion:*:*:*:users'               ignored-patterns \
-                                                   bin daemon mail ftp http nobody dbus avahi named git bitlbee mpd \
-                                                   rtkit ntp usbmux gdm
+zstyle ':completion:*:*:*:users'               ignored-patterns foo
+                                                   #bin daemon mail ftp http nobody dbus avahi named git bitlbee mpd \
+                                                   #rtkit ntp usbmux gdm
 
 # COMMANDS {{{1
 zstyle ':completion:*'                         list-colors "${(s.:.)LS_COLORS}"
@@ -68,7 +68,8 @@ zstyle ':completion:*:*:kill:*'                insert-ids single
 
 # man {{{2
 zstyle ':completion:*:manuals'                 separate-sections true
-zstyle ':completion:*:manuals.(^1*)'           insert-sections true
+zstyle ':completion:*:manuals.*'               insert-sections true
+zstyle ':completion:*:man:*'                   menu yes select
 
 # ssh/scp/rsync {{{2
 zstyle ':completion:*:(scp|rsync):*'                  tag-order 'hosts:-host hosts:-domain:domain hosts:-ipaddr:ip\ address *'
