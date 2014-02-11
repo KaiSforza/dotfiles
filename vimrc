@@ -25,7 +25,7 @@ set nowrap
 " folding
 set foldignore=
 set foldlevelstart=99
-set foldmethod=marker
+set foldmethod=syntax
 set fdc=2
 
 " Tabs
@@ -77,9 +77,21 @@ colo darkZ2
 nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F9> :TlistUpdate<CR>
 let Tlist_Exit_OnlyWindow = 1
-"let Tlist_Auto_Open = 1
+let Tlist_Auto_Open = 0
+let Tlist_Auto_Update = 1
 let Tlist_Max_Submenu_Items = 20
+let Tlist_Display_Prototype = 0
+let Tlist_Enable_Fold_Column = 0
 "let Tlist_Display_Prototype = 1
+let tlist_PKGBUILD_settings='sh;f:function'
+" Simple patch to tlist to allow using it as a split window
+let Tlist_Use_Split_Window = 1
+
+" Nerdtree mappings
+let NERDTreeMinimaLUI = 0
+
+" Open nerdtree and tlist at the same time on the left
+com TT NERDTreeToggle | TlistToggle
 
 " PDF Stuff
 "command Rpdf :r !pdftotext -nopgbrk <q-args> -
@@ -120,12 +132,13 @@ if version >= 703
   autocmd FileType text setlocal textwidth=78 colorcolumn=78
   au FileType python setlocal tabstop=4 expandtab shiftwidth=4
         \ softtabstop=4 textwidth=79  colorcolumn=79
+        \ foldtext=substitute(getline(v:foldstart),'\\t','\ \ \ \ ','g')
   set colorcolumn=76
   hi ColorColumn ctermbg=1 guibg=1
 else
   autocmd FileType text setlocal textwidth=78
   au FileType python setlocal tabstop=4 expandtab shiftwidth=4
-        \ softtabstop=4 textwidth=79
+        \ softtabstop=4 textwidth=79 sh=ipython3
 endif "}}}
 
 "au FileType java setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
