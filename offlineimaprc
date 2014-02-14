@@ -37,7 +37,8 @@ metadata = ~/.offlineimap
 # You will need to specify one section per account below.  You may
 # not use "general" for an account name.
 
-accounts = Gmail, kaictl
+accounts = Gmail
+#accounts = kaictl
 
 # Offlineimap can synchronize more than one account at a time.  If you
 # want to enable this feature, set the below value to something
