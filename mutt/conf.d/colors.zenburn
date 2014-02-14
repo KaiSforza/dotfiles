@@ -85,3 +85,4 @@ color markers brightcyan default
 mono bold bold
 mono underline underline
 mono indicator reverse
+# vim: ft=muttrc
