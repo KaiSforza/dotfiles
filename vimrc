@@ -18,6 +18,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
+Bundle 'jmcantrell/vim-virtualenv'
 " }}}
 
 set backspace=2         "backspace over everything
@@ -80,6 +81,25 @@ let g:pymode_doc_bind = 'K'
 let g:pymode_rope_completion = 0
 "}}}
 
+" virtualenv settings {{{
+let g:virtualenv_auto_activate = 1
+" }}}
+
+" airline settings {{{
+let g:airline_powerline_fonts = 0
+
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.whitespace = 'Ξ'
+
+" }}}
 
 " YCM {{{
 let g:ycm_extra_conf_globlist = [ '~/git/KaiSforza/*', '*' ]
