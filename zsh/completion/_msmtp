@@ -1,0 +1,83 @@
+#compdef msmtp msmtpq msmtp-queue
+
+_msmtpq_opts() {
+  local -a _q_opts
+  _q_opts=(
+        "-r:Run the mail queue"
+        "-R:Select messages to send"
+        "-d:Show contents"
+        "-p:Purge individual message(s) from queue"
+        "-a:Purge all mail from queue"
+        "-h:This help text"
+        )
+
+  _describe "${words[1]} opts" _q_opts
+}
+
+_numeric_ports() {
+  local -a _cache_ports
+  ${(A)_cache_ports:=${${${(M)${${(f)"$(</etc/services)"}:#\#*}#*/tcp}##*[ 	]}%%/tcp}}
+  ports=( "$_cache_ports[@]" )
+  _wanted ports expl port compadd -a "$@" - ports
+}
+
+_msmtp_accounts() {
+  local -a _accs _msmtprc
+  _msmtprc=( "${(f@)$(<$HOME/.msmtprc)}" )
+  _accs=( ${${(M)_msmtprc:#account*}##* } )
+  _describe "Accounts" _accs
+}
+
+case $service in
+  msmtp-queue)
+    _arguments \
+      "1:msmtp-queue opts:_msmtpq_opts"
+    ;;
+  msmtpq)
+    _arguments \
+      '1:Queue management mode:(--q-mgmt)' \
+      "2:msmtpq opts:_msmtpq_opts"
+    ;;
+  msmtp)
+    _arguments \
+      {-v,--version}":Print version" \
+      "--help:Print help" \
+      {-P,--pretend}":Print configuration info" \
+      {-v,-d,--debug}":Print debugging info" \
+      {-S,--serverinfo}":Print server information" \
+      "--rmqs=-:Send a remote queue message" \
+      {-C,--file=-}":Use the specified config file:_files" \
+      {-a,--account=-}":Use the specified account:_msmtp_accounts" \
+      "--host=-:Use this hostname:_hosts" \
+      "--port=-:Use this port number:_numeric_ports" \
+      "--timeout=-:Set a network timeout in seconds:( off {0-9}{0-9} )" \
+      "--protocol=-:Network protocol to use:(smtp lmtp)" \
+      "--auth=-:Authentication to use:(on off plain scram-sha-1 gssapi external digest-md5 login ntlm)" \
+      "--user=-:Username:_users" \
+      "--passwordeval=-:Use output as password:_command" \
+      "--tls=-:Use tls:(on off)" \
+      "--tls-starttls=-:Enable tls starttls:(on off)" \
+      "--tls-trust-file=-:Set a trust file for tls:_files" \
+      "--tls-crl-file=-:Set a revoation list for tls:_files" \
+      "--tls-fingerprint=-:Set a tls fingerprint" \
+      "--tls_key_file=-:Set a tls key file:_files" \
+      "--tls-cert-file=-:Set a cert file for tls:_files" \
+      "--tls-certcheck=-:Set tls cert checking:(on off)" \
+      "--tls-force-sslv3=-:Force tls/ssl v3:(on off)" \
+      "--tls-min-dh-prime-bits=-:Set minimum bit size of DH prime" \
+      "--tls-priorities=-:Set tls priorities" \
+      "--domain=-:Set the domain to use" \
+      "--auto-from=-:Set automatic envelope-from address:(on off)" \
+      {-f,--from=-}":Envelope-from address" \
+      "--maildomain=-:Set envelope-from domain" \
+      {-N,--dns-notify=-}":Set DNS notification conditions" \
+      {-R,--dns-return=-}":Set DNS notification amount" \
+      "--keepbcc=-:Preserve Bcc header:(on off)" \
+      {-X,--logfile=-}":Set log file location:_files" \
+      "--syslog=-:Enable logging:(on off LOG_USER LOG_MAIL LOG_LOCAL{0..7} )" \
+      {-t,--read-recipients=-}":Read recpients from mail header" \
+      "--read-envelope-from:Read envelope for from address" \
+      "--aliases=-:Set alias file location:_files" \
+      "--:End of options, start of addresses"
+    ;;
+esac
