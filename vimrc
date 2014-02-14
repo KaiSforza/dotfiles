@@ -16,6 +16,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'klen/python-mode'
+Bundle 'scrooloose/nerdtree'
 " }}}
 
 set backspace=2         "backspace over everything
