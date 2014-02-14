@@ -44,10 +44,10 @@ static const Rule rules[] = {
     { "URxvt",    NULL,       "scustatus",         0,       True,        0  },
     { "URxvt",    NULL,       "presenting",   1 << 3,       False,       1  },
     /* browsers */
-    { "Dwb",      NULL,       NULL,           1 << 1,       False,       0  },
+    //{ "Dwb",      NULL,       NULL,           1 << 1,       False,       0  },
     { "URxvt",    NULL,       "download_dwb", 1 << 1,       True,        0  },
-    { "luakit",   NULL,       NULL,           1 << 1,       False,       0  },
-    { "Firefox",  NULL,       NULL,           1 << 1,       False,       0  },
+    //{ "luakit",   NULL,       NULL,           1 << 1,       False,       0  },
+    //{ "Firefox",  NULL,       NULL,           1 << 1,       False,       0  },
     /* Skype */
     { "Skype",    NULL,       NULL,           1 << 4,       True,        0  },
     /* miscelaneous */
@@ -56,7 +56,7 @@ static const Rule rules[] = {
     { "Zathura",  NULL,       NULL,           1 << 3,       False,       0  },
     { "Abiword",  NULL,       NULL,           1 << 3,       False,       0  },
     { "libreoffice",  NULL,   NULL,           1 << 3,       False,       0  },
-    { "mpv",      NULL,       NULL,           1 << 2,       True,        1  },
+    { "mpv",      NULL,       NULL,           1 << 2,       True,        -1 },
     { NULL,       NULL,       "Steam",        1 << 4,       True,        -1 },
     { "Steam",    NULL,       NULL,           1 << 4,       True,        -1 },
     { "Wine",     "SC2.exe",  "StarCraft II", 1 << 4,       True,        -1 },
