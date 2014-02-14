@@ -1,6 +1,6 @@
 [submodule "luakit/plugins"]
 	path = luakit/plugins
-	url = ../luakitplugins
+	url = git://git.kaictl.net/pub/wgiokas/luakitplugins.git
 	branch = wgiokas
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
