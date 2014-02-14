@@ -7,7 +7,16 @@ set encoding=utf-8
 " File Detection
 filetype plugin indent on
 syntax on
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,~/.vim/bundle/vundle
+
+" {{{
+call vundle#rc()
+" let Vundle manage Vundle
+" " " required! 
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'klen/python-mode'
+" }}}
 
 set backspace=2         "backspace over everything
 set fcs=vert:│,fold:-   " solid instead of broken line for vert splits
@@ -61,9 +70,19 @@ let g:clang_auto_select = 1
 let g:tar_cmd = 'bsdtar'
 " }}}
 
+"pymode {{{
+let g:pymode_python = 'python3'
+let g:pymode_folding = 1
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
+let g:pymode_rope_completion = 0
+"}}}
+
+
 " YCM {{{
 let g:ycm_extra_conf_globlist = [ '~/git/KaiSforza/*', '*' ]
 " }}}
+
 
 set backup              " keep a backup file
 set history=50          " keep 50 lines of command line history
@@ -74,7 +93,6 @@ set background=dark
 colo darkZ2
 
 " Tlist Commands and variables
-nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F9> :TlistUpdate<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Auto_Open = 0
@@ -92,6 +110,7 @@ let NERDTreeMinimaLUI = 0
 
 " Open nerdtree and tlist at the same time on the left
 com TT NERDTreeToggle | TlistToggle
+nnoremap <silent> <F8> :TT<CR>
 
 " PDF Stuff
 "command Rpdf :r !pdftotext -nopgbrk <q-args> -
