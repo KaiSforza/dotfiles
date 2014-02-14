@@ -13,6 +13,7 @@
 	st = status
 	cm = commit
 	lo = log --all --graph --decorate=full --stat
+	loo = log --all --graph --decorate=full --oneline
 	co = checkout
 	pu = pull
 	fe = fetch
