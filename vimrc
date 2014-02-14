@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdtree'
+Bundle 'bling/vim-airline'
 " }}}
 
 set backspace=2         "backspace over everything
