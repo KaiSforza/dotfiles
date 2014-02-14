@@ -57,3 +57,5 @@ alias sudo="sudo "
 alias s='sudo '
 alias ytv='youtube-viewer -4 --mplayer=mpv'
 alias present_term="urxvtc -title 'presenting' -fn 'xft:Bitstream Vera Sans Mono:pixelsize=14' -fb 'xft:Bitstream Vera Sans Mono:pixelsize=14:bold'"
+
+alias rs-ssh='ssh -F ~/.ssh/rs-ssh'

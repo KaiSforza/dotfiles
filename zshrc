@@ -85,5 +85,7 @@ compdef _systemctl sc=systemctl
 compdef _systemctl scu=systemctl
 compdef _sudo s=sudo
 compdef _cower aurctl=cower
+compdef _ssh rs-ssh=ssh
+compdef _tar bsdtar=tar
 
 export PATH="/home/wgiokas/perl5/bin:$PATH";
