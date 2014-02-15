@@ -2,3 +2,6 @@
 	path = luakit/plugins
 	url = git://git.kaictl.net/pub/wgiokas/luakitplugins.git
 	branch = wgiokas
+[submodule "vim"]
+	path = vim
+	url = git://github.com/KaiSforza/vimrc.git
