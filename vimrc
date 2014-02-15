@@ -32,6 +32,7 @@ set spelllang=en_us
 set title
 set wildmenu
 set wildmode=full
+set completeopt=menu
 set nowrap
 
 " folding
@@ -55,7 +56,7 @@ set ignorecase
 set smartcase
 
 " Status line
-set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " }}}
 " LaTeX Suite {{{
@@ -77,8 +78,9 @@ let g:tar_cmd = 'bsdtar'
 let g:pymode_python = 'python3'
 let g:pymode_folding = 1
 let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_rope_completion = 0
+let g:pymode_rope_show_doc_bind = 'K'
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 0
 "}}}
 
 " virtualenv settings {{{
@@ -103,6 +105,7 @@ let g:airline_symbols.linenr = '¶'
 
 " YCM {{{
 let g:ycm_extra_conf_globlist = [ '~/git/KaiSforza/*', '*' ]
+let g:ycm_filetype_blacklist = { 'python' : 1 }
 " }}}
 
 
