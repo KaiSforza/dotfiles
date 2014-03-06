@@ -13,6 +13,7 @@ setopt always_to_end
 #}
 
 zstyle ':completion::complete:*'               use-cache off
+#zstyle ':completion:*:complete:'               use-cache off
 
 #zstyle ':completion:*:*:*:*:*' menu select  
 zstyle ':completion:*' menu select  

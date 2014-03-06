@@ -29,6 +29,14 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'          # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'                 # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'       # begin underline
 
+# GPG Agent stuffs
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+fi
+
+export PATH="/home/wgiokas/perl5/bin:$PATH";
+
 #export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 #export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
 #export LESS_TERMCAP_me=$(tput sgr0)

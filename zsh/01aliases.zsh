@@ -11,7 +11,7 @@ alias -s java=$EDITOR
 alias -s txt=$EDITOR
 alias -s PKGBUILD=$EDITOR
 
-alias tmx='tmux -S /run/tmux-1000/default '
+alias tmx='tmux -S /run/user/1000/tmux/default/ '
 
 # Normal aliases
 alias ls='ls --color=auto -F'
@@ -28,8 +28,11 @@ alias c="clear"
 alias dir='ls -1'
 alias ...='cd ../..'
 
+alias less=$PAGER
+alias zless=$PAGER
+
 # command L equivalent to command |less
-alias -g L='|less' 
+alias -g L='|less'
 
 # record screen and sound from mic
 alias ssrec='ffmpeg -f alsa -i hw:0 -ac 2 -f x11grab -s 1600x900 -r 25 -i :0.0'
