@@ -189,7 +189,7 @@ quick = -1
 
 # presynchook = imapfilter
 # postsynchook = notifysync.sh
-#postsynchook = notmuch new
+postsynchook = notmuch new
 
 # You can also specify parameters to the commands
 # presynchook = imapfilter -c someotherconfig.lua
@@ -326,6 +326,8 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 # Specify the remote user name.
 remoteuser = '1007380@gmail.com'
+#remote_identity = remoteuser
+#auth_mechnisms =
 
 # There are six ways to specify the password for the IMAP server:
 #
@@ -406,7 +408,7 @@ remotepassfile = /home/wgiokas/.offlineimap/gmail
 # cases, it may slow things down.  The safe answer is 1.  You should
 # probably never set it to a value more than 5.
 
-maxconnections = 3
+maxconnections = 2
 
 # OfflineIMAP normally closes IMAP server connections between refreshes if
 # the global option autorefresh is specified.  If you wish it to keep the
@@ -537,39 +539,39 @@ folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
 #readonly = False
 # }}} }}} }}}
 
-[Account kaictl] # DISABLED {{{
-########## Basic settings {{{
-localrepository = kaictl-local
-remoterepository = kaictl-remote
-# }}}
-########## Advanced settings {{{
-autorefresh = 5
-quick = -1
-postsynchook = notmuch --config=/home/wgiokas/.notmuch-config-kaictl new
-status_backend = sqlite
-# maxsize = 2000000
-# maxage =
-maildir-windows-compatible = no
-# }}}
-[Repository kaictl-local] # {{{
-type = Maildir
-localfolders = ~/.mutt/Maildirs/kaictl
-#sep = .
-restoreatime = no
-# }}}
-[Repository kaictl-remote] # {{{
-type = IMAP
-# Authentication {{{
-remotehost = kaictl.net
-ssl = yes
-#sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-#cert_fingerprint = 56b6c5d49371ab908af97ea9e10a3f0af4768012
-cert_fingerprint = 84bc221d6053fdae0e9311bf2a37f081575cc31a
-remoteport = 993
-remoteuser = 'wgiokas'
-#remotepass = ''
-remotepassfile = /home/wgiokas/.offlineimap/kaictl
-# }}}
+#[Account kaictl] # DISABLED {{{
+########### Basic settings {{{
+#localrepository = kaictl-local
+#remoterepository = kaictl-remote
+## }}}
+########### Advanced settings {{{
+#autorefresh = 5
+#quick = -1
+#postsynchook = notmuch --config=/home/wgiokas/.notmuch-config-kaictl new
+#status_backend = sqlite
+## maxsize = 2000000
+## maxage =
+#maildir-windows-compatible = no
+## }}}
+#[Repository kaictl-local] # {{{
+#type = Maildir
+#localfolders = ~/.mutt/Maildirs/kaictl
+##sep = .
+#restoreatime = no
+## }}}
+#[Repository kaictl-remote] # {{{
+#type = IMAP
+## Authentication {{{
+#remotehost = kaictl.net
+#ssl = yes
+##sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+##cert_fingerprint = 56b6c5d49371ab908af97ea9e10a3f0af4768012
+#cert_fingerprint = 84bc221d6053fdae0e9311bf2a37f081575cc31a
+#remoteport = 993
+#remoteuser = 'wgiokas'
+##remotepass = ''
+#remotepassfile = /home/wgiokas/.offlineimap/kaictl
+## }}}
 
 ########## Advanced settings {{{
 #reference = Mail
