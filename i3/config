@@ -113,6 +113,7 @@ assign [class="Gimp"] $4
 assign [class="Mcomix"] $5
 assign [class="Firefox" instance="Download"] $0
 assign [class="Steam"] $9
+assign [class="mpv"] $3
 
 # some windows that should start floating:
 for_window [class="Firefox" instance="Browser"] floating disable
