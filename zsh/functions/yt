@@ -1,0 +1,3 @@
+_url="$1"
+
+mpv $(youtube-dl -g "$1")
