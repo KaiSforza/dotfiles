@@ -1,0 +1,8 @@
+if [[ -z "$1" ]]
+then
+  echo "Error - Gotta search for something"
+  echo "usage: $0 Racker's name or other info here"
+  return 1
+fi
+SEARCH="$(tr ' ' '+' <<< "$@")" 
+elinks -dump -dump-width $(tput cols) "http://finder.rackspace.net/mini.php?q=$SEARCH"
