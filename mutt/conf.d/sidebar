@@ -1,5 +1,6 @@
 # which mailboxes to list in the sidebar
 mailboxes \
+          "=-- Gmail ----------------------" \
           =gmail/INBOX \
           =gmail/ML \
           =gmail/ML.arch \
@@ -17,11 +18,11 @@ mailboxes \
           =gmail/Phone \
           =gmail/github \
           =gmail/twitch \
-          =------------------------------- \
+          "=-- kaictl ---------------------" \
           =kaictl/INBOX \
-          =-------------------------------- \
+          "=-- encore ----------------------" \
           =test/queue/51 \
-          =--------------------------------- \
+          "=---------------------------------" \
           =sent \
           =Drafts \
 
