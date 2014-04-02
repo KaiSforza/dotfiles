@@ -1,3 +1,5 @@
-_url="${1%%&list=*}"
-
-mpv $(youtube-dl -g "$_url")
+_url=()
+for i in "$@"; do
+  _url+="${i%%&list=*}"
+done
+mpv $(youtube-dl -g ${=_url})
