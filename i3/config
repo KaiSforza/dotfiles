@@ -123,6 +123,7 @@ for_window [class="mpv"] floating enable
 for_window [class="Steam"] floating enable
 #for_window [class="Firefox-aurora" instance="Download"] floating enable
 for_window [title="ImageMagick*"] floating enable
+for_window [title="vimperator"] floating enable
 #
 # Set borders for some windows. Default: 1pixel
 for_window [class="mplayer2"] border none

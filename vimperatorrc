@@ -3,7 +3,9 @@
 set noscrollbars
 set tabnumbers
 set gui=none
+set focuscontent=true
 source! /home/wgiokas/.vimperatorrc.local
+set editor=urxvt\ -name\ vimperator\ -e\ vim\ -f
 
 " Run the javascript function below
 map <silent> <C-F8> :js toggle_bottombar()<CR>
