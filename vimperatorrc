@@ -1,0 +1,24 @@
+"3.7.1 (created: 2013/05/22 20:32:57)
+
+set noscrollbars
+set tabnumbers
+set gui=none
+source! /home/wgiokas/.vimperatorrc.local
+
+" Run the javascript function below
+map <silent> <C-F8> :js toggle_bottombar()<CR>
+map J :bp<CR>
+map K :bn<CR>
+
+" Hide the bottom bar
+:js << EOF
+function toggle_bottombar() {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    bb.style.height = (bb.style.height == '') ? '0px' : '';
+    bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
+    }
+EOF
+
+" vim: set ft=vim:
