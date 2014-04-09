@@ -6,6 +6,7 @@ set gui=none
 set focuscontent=true
 source! /home/wgiokas/.vimperatorrc.local
 set editor=urxvt\ -name\ vimperator\ -e\ vim\ -f
+set status=input,location,bookmark,history,tabcount,ssl,position
 
 " Run the javascript function below
 map <silent> <C-F8> :js toggle_bottombar()<CR>
