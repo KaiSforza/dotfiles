@@ -2,7 +2,7 @@
 
 set noscrollbars
 set tabnumbers
-set gui=none
+set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 set focuscontent=true
 source! /home/wgiokas/.vimperatorrc.local
 set editor=urxvt\ -name\ vimperator\ -e\ vim\ -f
