@@ -1,3 +1,3 @@
-_stream="${1##*/}"
+_stream="${1##*twitch.tv/}"
 _quality="${2:-best}"
 livestreamer "http://twitch.tv/${_stream}" ${_quality}
