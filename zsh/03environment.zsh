@@ -35,7 +35,7 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export GPG_AGENT_INFO
 fi
 
-export PATH="$PATH:$HOME/perl5/bin:$HOME/.rvm/bin/";
+export PATH="/home/wgiokas/perl5/bin:$PATH:$HOME/.rvm/bin/";
 
 export TMUX_TMPDIR="${XDG_RUNTIME_DIR}/tmux"
 
