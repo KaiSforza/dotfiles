@@ -21,4 +21,7 @@ subscribe -group yum yum@lists.baseurl.org
 
 # Misc Lists
 subscribe -group misc chicagolinux-discuss@googlegroups.com
+
+# VGER lists
+subscribe -group vger git@vger.kernel.org
 # vim: ft=muttrc
