@@ -15,7 +15,7 @@ URxvt.boldFont:             -*-proggytinysz-bold-*-*-*-10-*-*-*-*-*-*-*
 ! urxvt perl select settings --------------------------------------------
 URxvt.perl-ext:             default,url-select
 URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.url-select.launcher:  /usr/bin/firefox
+URxvt.url-select.launcher:  /usr/bin/dwb
 URxvt.url-select.underline: true
 
 ! fade colors -----------------------------------------------------------
