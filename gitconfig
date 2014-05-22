@@ -22,3 +22,6 @@
 	di = diff
 [push]
 	default = current
+[advice]
+	statusHints = false
+	detachedHead = false
