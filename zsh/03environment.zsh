@@ -36,6 +36,11 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export GPG_AGENT_INFO
 fi
 
+# Dircolors. Makes 'ls' look purdy.
+if [[ -a $HOME/.dir_colors ]]; then
+  eval $(dircolors $HOME/.dir_colors)
+fi
+
 # Path manipulations. Only add these if they exist to keep $PATH clean.
 if [ -d "$HOME/bin/perl5" ]; then
   export PATH="$HOME/perl5/bin:$PATH"
