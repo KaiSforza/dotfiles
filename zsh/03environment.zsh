@@ -23,7 +23,13 @@ export LESS="-RM"
 ## Uncomment to use a custom virtualenv.
 #export __CUSTOM_VENV="$HOME/.virtualenv/3/"
 
-## Custom list of virtual environments that are not in a specific directory
+## Custom list of virtual environments that are not in a specific directory.
+## This is an associative array, where the name you want the venv to to by
+## is the key. Example:
+##   (3 $HOME/.venv/3
+##    2 foo/bar/baz/2
+##    django $HOME/dev/django)
+#typeset -A __CUSTOM_VENV_LIST
 #__CUSTOM_VENV_LIST=()
 #export __CUSTOM_VENV_LIST
 
