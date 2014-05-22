@@ -105,7 +105,7 @@ bindsym $mod+0 workspace $0
 bindsym $mod+Tab workspace back_and_forth
 
 # assign programs to certain workspaces automatically
-assign [class="Firefox"] $2
+assign [class="Firefox"] $4
 #assign [class="DTA"] $6
 assign [class="luakit"] $2
 assign [class="Dwb"] $2
@@ -124,6 +124,7 @@ for_window [class="Steam"] floating enable
 #for_window [class="Firefox-aurora" instance="Download"] floating enable
 for_window [title="ImageMagick*"] floating enable
 for_window [title="vimperator"] floating enable
+for_window [instance="vimperator"] floating enable
 #
 # Set borders for some windows. Default: 1pixel
 for_window [class="mplayer2"] border none
