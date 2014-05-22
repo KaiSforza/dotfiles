@@ -19,7 +19,7 @@ case $1 in
       . "$__CUSTOM_VENV_DIR/$2/bin/activate"
     elif [[ -d "$HOME/.virtualenv/$2" ]]; then
       . "$HOME/.virtualenv/$2/bin/activate"
-    elif [[ "${__CUSTOM_VENV_LIST[$2]}" && -f "${__CUSTOM_VENV_LIST[$2]}"/bin/activate ]]; then
+    elif [[ -n "${__CUSTOM_VENV_LIST[$2]}" && -f "${__CUSTOM_VENV_LIST[$2]}"/bin/activate ]]; then
       . "${__CUSTOM_VENV_LIST[$2]}"/bin/activate
     else
       printf "No such virtualenv: %s\n" "$2"
