@@ -36,7 +36,13 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export GPG_AGENT_INFO
 fi
 
-export PATH="$HOME/perl5/bin:$PATH";
+# Path manipulations. Only add these if they exist to keep $PATH clean.
+if [ -d "$HOME/bin/perl5" ]; then
+  export PATH="$HOME/perl5/bin:$PATH"
+fi
+if [ -d "$HOME/.rvm/bin" ]; then
+  export PATH="$HOME/.rvm/bin:$PATH"
+fi
 
 export TMUX_TMPDIR="${XDG_RUNTIME_DIR}/tmux"
 
