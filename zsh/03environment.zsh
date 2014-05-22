@@ -20,6 +20,16 @@ export VISUAL=vim
 export PAGER=less
 export LESS="-RM"
 
+## Uncomment to use a custom virtualenv.
+#export __CUSTOM_VENV="$HOME/.virtualenv/3/"
+
+## Custom list of virtual environments that are not in a specific directory
+#__CUSTOM_VENV_LIST=()
+#export __CUSTOM_VENV_LIST
+
+## Custom virtual environment directory that is not ~/.virtualenv
+#export __CUSTOM_VENV_DIR
+
 # GPG Agent stuffs
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"

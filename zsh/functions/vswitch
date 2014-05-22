@@ -1,0 +1,32 @@
+local mainvenvs
+mainvenvs=( "$HOME"/.virtualenv/* )
+
+if [[ -n "$__CUSTOM_VENV_DIR" && -d "$__CUSTOM_VENV_DIR" ]]; then
+  mainvenvs+=("$__CUSTOM_VENV_DIR"/*)
+fi
+
+if [[ -n "${__CUSTOM_VENV_LIST[@]}" ]]; then
+  mainvenvs+=("${__CUSTOM_VENV_LIST[@]}")
+fi
+
+case $1 in
+  -l)
+    printf "Virtual Environments:\n"
+    printf "%s\n" "${mainvenvs[@]}"
+    ;;
+  -s)
+    if [[ -d "$__CUSTOM_VENV_DIR/$2" ]]; then
+      . "$__CUSTOM_VENV_DIR/$2/bin/activate"
+    elif [[ -d "$HOME/.virtualenv/$2" ]]; then
+      . "$HOME/.virtualenv/$2/bin/activate"
+    elif [[ "${__CUSTOM_VENV_LIST[@]}" == *"$2"* && -f "$2"/bin/activate ]]; then
+      . "$2"/bin/activate
+    else
+      printf "No such virtualenv: %s\n" "$2"
+      return 1
+    fi
+    ;;
+  *)
+    printf "Unknown option: %s\n" "$1"
+    ;;
+esac
