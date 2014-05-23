@@ -12,7 +12,7 @@ fi
 case $1 in
   -l)
     printf "Virtual Environments:\n"
-    printf "%s\n" "${mainvenvs[@]}"
+    printf "    %s\n" "${mainvenvs[@]}"
     ;;
   -s)
     if [[ -d "$__CUSTOM_VENV_DIR/$2" ]]; then
