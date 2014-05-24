@@ -27,6 +27,7 @@ alias f='find |grep'
 alias c="clear"
 alias dir='ls -1'
 alias ...='cd ../..'
+alias cp='cp --reflink=auto'
 
 alias less=$PAGER
 alias zless=$PAGER
