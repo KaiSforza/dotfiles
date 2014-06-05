@@ -15,6 +15,7 @@ compdef _tar bsdtar=tar
 compdef _pacman kspman=pacman
 compdef _pacman kspmake=makepkg
 compdef _ls ll=ls la=ls
+compdef _man vman=man
 #compdef _ls la=ls
 
 compdef -k _tmux_pane_complete menu-select '^T'

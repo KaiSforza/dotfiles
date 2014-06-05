@@ -1,0 +1,24 @@
+mkdir -p "/tmp/manpages/$UID"
+_a="$(mktemp -d -p "/tmp/manpages/$UID" tmp-XXXXXX)"
+
+unset _page
+
+if [[ -n "$(grep '[0-9]' <<< $1)" ]]; then
+  _page=$1
+  shift
+fi
+
+_mans=()
+
+for i in $@; do
+  _manual="$(man -w $_page $i)"
+  _manual="${_manual%%.gz}"
+  _mans=(${_mans[@]} "$_a"/"${_manual##*/}")
+  MANWIDTH=77 man --pager=cat $_page $i > "$_a"/"${_manual##*/}" 2> /dev/null
+done
+
+vim -f -R ${_mans[@]}
+
+rm -rf "$_a"
+
+# vim: set ft=zsh:
