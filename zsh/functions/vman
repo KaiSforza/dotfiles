@@ -3,7 +3,7 @@ _a="$(mktemp -d -p "/tmp/manpages/$UID" tmp-XXXXXX)"
 
 unset _page
 
-if [[ -n "$(grep '[0-9]' <<< $1)" ]]; then
+if [[ -n "$(grep '^[0-9n]$' <<< $1)" ]]; then
   _page=$1
   shift
 fi
