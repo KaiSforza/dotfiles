@@ -53,6 +53,10 @@ if [ -d "$HOME/bin/perl5" ]; then
 fi
 if [ -d "$HOME/.rvm/bin" ]; then
   export PATH="$HOME/.rvm/bin:$PATH"
+  source "$HOME/.rvm/scripts/rvm"
+  for i in "$HOME"/.rvm/gems/*/bin ; do
+    export PATH="$i:$PATH"
+  done
 fi
 
 export TMUX_TMPDIR="${XDG_RUNTIME_DIR}/tmux"
