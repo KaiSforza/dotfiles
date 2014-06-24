@@ -1,12 +1,8 @@
 local __lamppath="$HOME"/git/KaiSforza/lamp
 local __key="$HOME"/.ssh/id_rackspace
 
-__EXIT() { popd ; exit 1 }
-
 run() {
   pushd $__lamppath
-
-  trap ( popd ; exit 1 ) ERR HUP INT
 
   for i in $@; do
     printf "==> Setting up the environment"
