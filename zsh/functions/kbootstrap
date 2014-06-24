@@ -1,16 +1,23 @@
 local __lamppath="$HOME"/git/KaiSforza/lamp
 local __key="$HOME"/.ssh/id_rackspace
-pushd $__lamppath
 
-trap popd ERR HUP INT
+__EXIT() { popd ; exit 1 }
 
-for i in $@; do
-  printf "==> Setting up the environment"
-  ssh-copy-id -i "${__key}" "${i}"
-  ssh root@"$i" -- "[[ -e /etc/redhat_release ]] && yum -y groupinstall 'Development Tools' || apt-get install build-essential"
-  ln -svf "${__lamppath}"/DEFAULT.json "${__lamppath}/${i}".json
-  printf "==> Running the knife-solo boostrap on $i...\n"
-  knife solo bootstrap root@"$i"
-  printf "==> Finished knife-solo boostrap on $i...\n"
-done
-popd
+run() {
+  pushd $__lamppath
+
+  trap ( popd ; exit 1 ) ERR HUP INT
+
+  for i in $@; do
+    printf "==> Setting up the environment"
+    ssh-copy-id -i "${__key}" "root@${i}"
+    ssh root@"$i" -- "yum -y groupinstall 'Development Tools' || apt-get install build-essential"
+    ln -svf "${__lamppath}"/DEFAULT.json "${__lamppath}/${i}".json
+    printf "==> Running the knife-solo boostrap on $i...\n"
+    knife solo bootstrap root@"$i"
+    printf "==> Finished knife-solo boostrap on $i...\n"
+  done
+  popd
+}
+
+run $@
