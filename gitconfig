@@ -12,6 +12,7 @@
 [alias]
 	st = status
 	cm = commit
+	ci = commit
 	lo = log --all --graph --decorate=full --stat
 	loo = log --all --graph --decorate=full --oneline
 	co = checkout
