@@ -1,19 +1,21 @@
-local __lamppath="$HOME"/git/KaiSforza/lamp
-local __key="$HOME"/.ssh/id_rackspace
+__run() {
+  local __lamppath="$HOME"/git/KaiSforza/lamp
+  local __key="$HOME"/.ssh/id_rackspace
+  local __run
 
-run() {
   pushd $__lamppath
 
   for i in $@; do
     printf "==> Setting up the environment"
-    ssh-copy-id -i "${__key}" "root@${i}"
-    ssh root@"$i" -- "yum -y groupinstall 'Development Tools' || apt-get install build-essential"
-    ln -svf "${__lamppath}"/DEFAULT.json "${__lamppath}/${i}".json
+    ssh-copy-id -i "${__key}" "${i}"
+    ssh "$i" -- "yum -y groupinstall 'Development Tools' || apt-get install build-essential"
+    ln -svf "${__lamppath}"/nodes/DEFAULT.json "${__lamppath}/nodes/${i}".json
     printf "==> Running the knife-solo boostrap on $i...\n"
-    knife solo bootstrap root@"$i"
+    rvm use ruby-2.1.1@deployments
+    knife solo bootstrap "$i"
     printf "==> Finished knife-solo boostrap on $i...\n"
   done
   popd
 }
 
-run $@
+__run $@
