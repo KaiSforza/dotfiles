@@ -26,3 +26,12 @@
 [advice]
 	statusHints = false
 	detachedHead = false
+[hub]
+	protocol = ssh
+	host = github.rackspace.com
+	host = github.com
+  defaulthost = github.rackspace.com
+[pager]
+	blame = less -S
+[gh]
+	autoUpdate = never
