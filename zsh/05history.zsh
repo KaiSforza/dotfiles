@@ -8,7 +8,7 @@ setopt extended_history
 setopt no_hist_allow_clobber
 setopt no_hist_beep
 setopt hist_expire_dups_first
-setopt hist_fcntl_lock
+#setopt hist_fcntl_lock
 setopt hist_find_no_dups
 setopt no_hist_ignore_dups
 setopt hist_ignore_space
