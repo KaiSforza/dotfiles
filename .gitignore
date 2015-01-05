@@ -1,5 +1,7 @@
 backups/
 zsh/zhistory
+zsh/completion/_youtube-dl
+ncmpcpp/error.log
 vim/.netrwhist
 *~
 *.sw[op]
