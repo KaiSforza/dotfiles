@@ -10,3 +10,8 @@ if [[ -n $TMUX ]]; then
         . $HOME/.virtualenv/2/bin/activate
     fi
 fi
+
+# Also for ocaml
+if [[ -f "$HOME/.opam/opam-init/init.zsh" ]]; then
+    . "$HOME/.opam/opam-init/init.zsh"
+fi
