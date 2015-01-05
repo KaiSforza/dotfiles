@@ -45,6 +45,7 @@ alias -g S='&> /dev/null &'
 
 #package manager aliases:
 alias pc="pacman "
+alias yum="dnf"
 alias cw="cower -v "
 alias aurctl="cower"
 alias cwv="cower -v --target=$HOME/aur/vcs"
