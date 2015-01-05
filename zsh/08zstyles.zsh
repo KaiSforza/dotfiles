@@ -83,7 +83,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^<->.<->
 local _hosts
 _hosts=()
 if [ -f ~/.ssh/config ]; then
-  _hosts=(${${${(M)${(f)"$(<~/.ssh/config)"}:#Host*}#Host }:#*\**})
+  _hosts=(${=${${(M)${(f)"$(<~/.ssh/config)"}:#Host*}#Host }:#*\**})
 fi
 zstyle ':completion:*' hosts $_hosts
 
