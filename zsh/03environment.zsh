@@ -37,6 +37,10 @@ export LESS="-RM"
 ## Custom virtual environment directory that is not ~/.virtualenv
 #export __CUSTOM_VENV_DIR
 
+if [[ "$TERM" == "xterm" ]]; then
+    export TERM=xterm-256color
+fi
+
 # GPG Agent stuffs
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"
