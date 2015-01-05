@@ -64,3 +64,5 @@ alias ytv='youtube-viewer -4 --mplayer=mpv'
 alias present_term="urxvtc -title 'presenting' -fn 'xft:Bitstream Vera Sans Mono:pixelsize=14' -fb 'xft:Bitstream Vera Sans Mono:pixelsize=14:bold'"
 
 alias rs-ssh='ssh -F ~/.ssh/rs-ssh'
+
+alias ksprpm="fakechroot rpm --root '/home/wgiokas/.local/share/Steam/SteamApps/common/Kerbal Space Program' --dbpath '/var/lib/rpm'"
