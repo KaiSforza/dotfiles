@@ -9,7 +9,7 @@ source! /home/wgiokas/.vimperatorrc.local
 set editor="gvim -f"
 set status=input,location,bookmark,history,tabcount,position
 set autocomplete=false
-"colorscheme molokai
+colorscheme molokai
 
 " Run the javascript function below
 map <silent> <C-F8> :js toggle_bottombar()<CR>
