@@ -41,4 +41,4 @@ bindkey "^F" backward-kill-to-/
 
 zle -N edit-command-line
 
-eval "$(sed -nE 's/^([^#]+): /bindkey \1 /' /etc/inputrc)"
+[[ -a /etc/inputrc ]] && eval "$(sed -nE 's/^([^#]+): /bindkey \1 /' /etc/inputrc)"
