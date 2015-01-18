@@ -1,5 +1,6 @@
 "3.7.1 (created: 2013/05/22 20:32:57)
 
+set defsearch=duckduckgo
 set noscrollbars
 set tabnumbers
 set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs

@@ -1,6 +1,6 @@
 #export SUDO_PROMPT="$(print -P '%F{red}[sudo]%f ponyword for %F{green}%n%f@%F{yellow}%m%f: ')"
 
-eval $(ssh-agent) >/dev/null
+[[ -z "$SSH_AGENT_PID" ]] && eval $(ssh-agent) >/dev/null
 
 setopt completealiases
 setopt printeightbit
@@ -42,7 +42,7 @@ if [[ "$TERM" == "xterm" ]]; then
 fi
 
 # GPG Agent stuffs
-if [ -f "${HOME}/.gpg-agent-info" ]; then
+if [[ -f "${HOME}/.gpg-agent-info" ]]; then
   . "${HOME}/.gpg-agent-info"
   export GPG_AGENT_INFO
 fi
@@ -53,10 +53,10 @@ if [[ -a $HOME/.dir_colors ]]; then
 fi
 
 # Path manipulations. Only add these if they exist to keep $PATH clean.
-if [ -d "$HOME/bin/perl5" ]; then
+if [[ -d "$HOME/bin/perl5" ]]; then
   export PATH="$HOME/perl5/bin:$PATH"
 fi
-if [ -d "$HOME/.rvm/bin" ]; then
+if [[ -d "$HOME/.rvm/bin" ]]; then
   export PATH="$HOME/.rvm/bin:$PATH"
   source "$HOME/.rvm/scripts/rvm"
   for i in "$HOME"/.rvm/gems/*/bin ; do
