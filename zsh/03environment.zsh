@@ -7,7 +7,12 @@ setopt printeightbit
 setopt braceexpand
 setopt braceccl
 DISABLE_AUTO_TITLE=true
-export EDITOR=vim
+if [[ -x /usr/bin/vimx ]]; then
+    export EDITOR=vimx
+    alias vim=vimx
+else
+    export EDITOR=vim
+fi
 export GIT_EDITOR=$EDITOR
 export SUDO_EDITOR=$EDITOR
 export GPG_TTY=$(tty)
@@ -16,8 +21,7 @@ export LC_TIME=C
 #MPD_HOST=${${"$(ip -4 addr show enp0s25)"#*inet }%%/24*}
 #MPD_PORT=
 [[ -z $SSH_CONNECTION ]] && DISPLAY=:0
-export EDITOR=vim
-export VISUAL=vim
+export VISUAL="$EDITOR"
 export PAGER=less
 export LESS="-RM"
 
