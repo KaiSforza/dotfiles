@@ -1,6 +1,7 @@
 local pkgs cmd="$1"
 
-pkgs=(${(fu)"$(dnf -C provides "/usr/*bin/${cmd}" 2> /dev/null | awk '/x86_64|noarch/ {print $1}')"})
+# pkgs=(${(fu)"$(dnf -C provides "/usr/*bin/${cmd}" 2> /dev/null | awk '/x86_64|noarch/ {print $1}')"})
+pkgs=(${(fu)"$(pkgfile -b -v -- "$cmd" 2> /dev/null )"})
 if [[ -n "$pkgs" ]]; then
     printf '%s may be found in the following packages:\n' "$cmd"
     printf '  %s\n' $pkgs[@]

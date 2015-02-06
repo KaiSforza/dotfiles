@@ -1,0 +1,29 @@
+setproxy () {
+    case $1 in
+        on)
+            export ALL_PROXY=socks://localhost:8053/
+            export FTP_PROXY=http://localhost:9123/
+            export HTTPS_PROXY=http://localhost:9123/
+            export HTTP_PROXY=http://localhost:9123/
+            export NO_PROXY=localhost,127.0.0.0/8,::1
+            export all_proxy=socks://localhost:8053/
+            export ftp_proxy=http://localhost:9123/
+            export http_proxy=http://localhost:9123/
+            export https_proxy=http://localhost:9123/
+            export no_proxy=localhost,127.0.0.0/8,::1
+            ;;
+        off)
+            unset ALL_PROXY HTTP_PROXY HTTPS_PROXY all_proxy http_proxy https_proxy no_proxy NO_PROXY ftp_proxy FTP_PROXY
+            # export ALL_PROXY=
+            # export FTP_PROXY=
+            # export HTTPS_PROXY=
+            # export HTTP_PROXY=
+            # export NO_PROXY=
+            # export all_proxy=
+            # export ftp_proxy=
+            # export http_proxy=
+            # export https_proxy=
+            # export no_proxy=
+            ;;
+    esac
+}
