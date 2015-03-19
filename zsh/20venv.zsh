@@ -21,3 +21,7 @@ if [[ -d "$HOME/git/pyenv" ]]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     . <( "$HOME"/git/pyenv/bin/pyenv init - )
 fi
+
+if [[ -d "$HOME/git/pyenv/plugins/pyenv-virtualenv" ]]; then
+    . <( "$HOME"/git/pyenv/bin/pyenv virtualenv-init - )
+fi

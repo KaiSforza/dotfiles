@@ -1,21 +1,21 @@
 "3.7.1 (created: 2013/05/22 20:32:57)
 
-set defsearch=duckduckgo
+set defsearch=google
 set noscrollbars
-set tabnumbers
+set tabnumbers=false
 set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 set focuscontent=true
-source! /home/wgiokas/.vimperatorrc.local
+"source! /home/wgiokas/.vimperatorrc.local
 "set editor=gnome-terminal\ -x\ vim\ -f
 set editor="gvim -f"
 set status=input,location,bookmark,history,tabcount,position
 set autocomplete=false
-colorscheme molokai
+"colorscheme molokai
 
 " Run the javascript function below
 map <silent> <C-F8> :js toggle_bottombar()<CR>
-map J :bp<CR>
-map K :bn<CR>
+map J :bn<CR>
+map K :bp<CR>
 
 " Hide the bottom bar
 :js << EOF

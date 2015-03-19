@@ -1,6 +1,18 @@
-#export SUDO_PROMPT="$(print -P '%F{red}[sudo]%f ponyword for %F{green}%n%f@%F{yellow}%m%f: ')"
+export SUDO_PROMPT="$(print -P '%B%F{red}[sudo]%f%b password for %B%F{blue}%n%f%b@%F{green}%m%f: ')"
 
-[[ -z "$SSH_AGENT_PID" ]] && eval $(ssh-agent) >/dev/null
+if [[ -z "${XDG_RUNTIME_DIR}" ]]; then
+    export RUNTIMEDIR=/tmp/$UID
+    install -dm700 "$RUNTIMEDIR"
+else
+    export RUNTIMEDIR="$XDG_RUNTIME_DIR"
+fi
+
+if [[ ! -f "$RUNTIMEDIR"/ssh/agent ]] ; then
+    install -dm700 "$RUNTIMEDIR"/ssh
+    ssh-agent > "$RUNTIMEDIR"/ssh/agent
+fi
+
+. "$RUNTIMEDIR"/ssh/agent >/dev/null
 
 setopt completealiases
 setopt printeightbit
@@ -20,7 +32,7 @@ export BROWSER=firefox
 export LC_TIME=C
 #MPD_HOST=${${"$(ip -4 addr show enp0s25)"#*inet }%%/24*}
 #MPD_PORT=
-[[ -z $SSH_CONNECTION ]] && DISPLAY=:0
+#[[ -z $SSH_CONNECTION ]] && DISPLAY=:0
 export VISUAL="$EDITOR"
 export PAGER=less
 export LESS="-RM"
@@ -68,7 +80,11 @@ if [[ -d "$HOME/.rvm/bin" ]]; then
   done
 fi
 
-export TMUX_TMPDIR="${XDG_RUNTIME_DIR}/tmux"
+export PATH="$PATH:/usr/sbin:/sbin"
+
+if [[ -n "${XDG_RUNTIME_DIR}" ]]; then
+    export TMUX_TMPDIR="${XDG_RUNTIME_DIR}/tmux"
+fi
 
 ## support colors in less
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # begin blinking | green
@@ -84,3 +100,6 @@ export LESS_TERMCAP_ZN=$(tput ssubm)
 export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
+
+[[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"

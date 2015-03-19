@@ -5,19 +5,20 @@
 ! requires: perl                                                        !
 !           proggyfonts                                                 !
 !-----------------------------------------------------------------------!
+URxvt*termName: screen-256color
+URxvt*imlocale: en_US.UTF-8
 
 ! URXVT Specific Preferences --------------------------------------------
 URxvt.scrollBar:            False
 URxvt.urgentOnBell:         true
-!URxvt.font:                 -*-proggyoptis-medium-*-*-*-10-*-*-*-*-*-*-*
-!URxvt.boldFont:             -*-proggytinysz-bold-*-*-*-10-*-*-*-*-*-*-*
+URxvt.font:                 -*-proggyoptis-medium-*-*-*-10-*-*-*-*-*-*-*
+URxvt.boldFont:             -*-proggytinysz-bold-*-*-*-10-*-*-*-*-*-*-*
 
 ! urxvt perl select settings --------------------------------------------
-URxvt.perl-ext:             default
-! ,url-select
-!URxvt.keysym.M-u:           perl:url-select:select_next
-!URxvt.url-select.launcher:  /usr/bin/firefox
-!URxvt.url-select.underline: true
+URxvt.perl-ext:             default,url-select
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.url-select.launcher:  /usr/bin/firefox
+URxvt.url-select.underline: true
 
 ! fade colors -----------------------------------------------------------
 URxvt.fading:       20
