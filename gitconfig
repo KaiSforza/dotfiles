@@ -1,14 +1,14 @@
 [user]
 	email = 1007380@gmail.com
 	name = William Giokas
-	signingkey = 73CD09CF
+    # signingkey = 73CD09CF
 [color]
 	branch = auto
 	diff = auto
 	status = auto
 [sendemail]
   #smtpserver = /usr/bin/msmtp
-  smtpserver = /home/wgiokas/bin/msmtpq
+  #smtpserver = /home/wgiokas/bin/msmtpq
 [alias]
 	st = status
 	cm = commit
@@ -21,17 +21,20 @@
 	rb = rebase
 	dc = diff --cached
 	di = diff
+	cl = clone -b mainline
 [push]
 	default = current
 [advice]
 	statusHints = false
 	detachedHead = false
 [hub]
-	protocol = ssh
-	host = github.rackspace.com
+    protocol = ssh
 	host = github.com
-  defaulthost = github.rackspace.com
 [pager]
 	blame = less -S
 [gh]
 	autoUpdate = never
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

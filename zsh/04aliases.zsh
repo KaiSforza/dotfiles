@@ -66,3 +66,16 @@ alias present_term="urxvtc -title 'presenting' -fn 'xft:Bitstream Vera Sans Mono
 alias rs-ssh='ssh -F ~/.ssh/rs-ssh'
 
 alias ksprpm="fakechroot rpm --root '/home/wgiokas/.local/share/Steam/SteamApps/common/Kerbal Space Program' --dbpath '/var/lib/rpm'"
+
+export _NIX_SHELLS="$HOME/.nixpkgs/shells/"
+
+nix-shell-instantiate () { nix-instantiate "${_NIX_SHELLS}/$1" --indirect --add-root "${_NIX_SHELLS}/${1/.nix/.drv}" }
+alias _nix-shell="nix-shell --pure"
+alias nix-python3="_nix-shell $_NIX_SHELLS/python/python3.drv"
+alias nix-python2="_nix-shell $_NIX_SHELLS/python/python2.drv"
+alias nix-python=nix-python3
+alias nix-haskell="_nix-shell $_NIX_SHELLS/haskell/haskell.drv"
+alias hoogle="_nix-shell $_NIX_SHELLS/haskell/hoogle.drv --command 'hoogle server -d ~/.hoogle/ -p 8080'"
+nix-ghc () { nix-haskell --command "ghc ${*}" }
+nix-ghci () { nix-haskell --command "ghci ${*}" }
+nix-ipython () { nix-python --command "ipython ${*}" }

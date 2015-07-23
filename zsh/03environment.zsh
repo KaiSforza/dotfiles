@@ -18,6 +18,7 @@ setopt completealiases
 setopt printeightbit
 setopt braceexpand
 setopt braceccl
+setopt AUTO_PUSHD
 DISABLE_AUTO_TITLE=true
 if [[ -x /usr/bin/vimx ]]; then
     export EDITOR=vimx
@@ -70,7 +71,7 @@ fi
 
 # Path manipulations. Only add these if they exist to keep $PATH clean.
 if [[ -d "$HOME/bin/perl5" ]]; then
-  export PATH="$HOME/perl5/bin:$PATH"
+  export PATH="$HOME/bin/perl5:$PATH"
 fi
 if [[ -d "$HOME/.rvm/bin" ]]; then
   export PATH="$HOME/.rvm/bin:$PATH"
@@ -78,6 +79,12 @@ if [[ -d "$HOME/.rvm/bin" ]]; then
   for i in "$HOME"/.rvm/gems/*/bin ; do
     export PATH="$i:$PATH"
   done
+fi
+if [[ -d "$HOME/git/homebrew/bin" ]]; then
+  export PATH="$HOME/git/homebrew/bin:$PATH"
+fi
+if [[ -d "$HOME/bin" ]]; then
+  export PATH="$HOME/bin:$PATH"
 fi
 
 export PATH="$PATH:/usr/sbin:/sbin"
@@ -101,5 +108,7 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
-[[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
+if [[ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]]; then
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+    export NIX_PATH=nixpkgs=/nix/nixpkgs:nixpkgs=/nix/nixpkgs
+fi
